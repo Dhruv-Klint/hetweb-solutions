@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { Menu } from 'lucide-react'
+import logo from "../assets/logo.png"
 
 export default function Navbar() {
   return (
     <nav className="bg-black/90 backdrop-blur-md border-b border-cyan-500/20 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
-        <img src="src/assets/logo1.png" alt="HETWEB Logo" className="h-20 w-auto object-contain" />
+        <img src={logo} alt="HETWEB Logo" className="h-20 w-auto object-contain" />
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8 text-gray-200 font-medium">
