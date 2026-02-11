@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Herosection from "../assets/Hero-section.avif"
 
 export default function Home() {
   return (
@@ -48,7 +49,7 @@ export default function Home() {
             className="flex justify-center"
           >
             <motion.img
-              src="src/assets/Hero-section.avif"
+              src={Herosection}
               alt="Digital Marketing"
               className="w-full max-w-2xl drop-shadow-2xl rounded-xl"
               animate={{ y: [0, -15, 0] }}
