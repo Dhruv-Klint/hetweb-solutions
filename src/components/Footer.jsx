@@ -1,90 +1,129 @@
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
+import { Facebook, Instagram, Linkedin, Mail, MapPin } from 'lucide-react'
+import logo from "../assets/logo.png"
+import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-800 mt-20">
-      <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10 text-center md:text-left">
+    <footer className="relative bg-gradient-to-b from-black via-black/95 to-black border-t border-cyan-500/10 mt-24 overflow-hidden">
+
+      {/* Glow Background */}
+      <div className="absolute inset-0 opacity-20 blur-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
+
+      <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12 text-center md:text-left">
 
         {/* BRAND */}
-        <div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Hetweb Solutions
-          </h2>
-          <p className="text-gray-400 mt-4 text-sm leading-relaxed">
-            We help startups and businesses grow with modern digital marketing
-            solutions, creative branding, and powerful online strategies that
-            deliver real results.
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <img
+            src={logo}
+            alt="Hetweb Logo"
+            className="h-16 w-auto object-contain mx-auto md:mx-0 drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]"
+          />
+          <p className="text-gray-400 mt-5 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
+            We help startups and businesses grow with modern digital marketing,
+            creative branding, and powerful online strategies that deliver
+            measurable results.
           </p>
-        </div>
+        </motion.div>
 
         {/* QUICK LINKS */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <div className="space-y-2 text-gray-400">
-            <FooterLink to="/" label="Home" />
-            <FooterLink to="/services" label="Services" />
-            <FooterLink to="/about" label="About" />
-            <FooterLink to="/contact" label="Contact" />
-          </div>
-        </div>
+        <FooterColumn title="Quick Links">
+          <FooterLink to="/" label="Home" />
+          <FooterLink to="/services" label="Services" />
+          <FooterLink to="/about" label="About" />
+          <FooterLink to="/contact" label="Contact" />
+        </FooterColumn>
 
         {/* SERVICES */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Our Services</h3>
-          <div className="space-y-2 text-gray-400">
-            <p>SEO Optimization</p>
-            <p>Social Media Marketing</p>
-            <p>Website Development</p>
-          </div>
-        </div>
+        <FooterColumn title="Our Services">
+          <FooterLink to="/services/service1" label="SEO Services" />
+          <FooterLink to="/services/service2" label="Social Media Marketing" />
+          <FooterLink to="/services/service3" label="Account Creation" />
+          <FooterLink to="/services/service4" label="Bookmarking Websites" />
+        </FooterColumn>
 
-        {/* CONTACT INFO */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-          <div className="space-y-3 text-gray-400 text-sm">
+        {/* CONTACT */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-lg font-semibold mb-5 text-white">Contact</h3>
+
+          <div className="space-y-4 text-gray-400 text-sm">
             <p className="flex items-center justify-center md:justify-start gap-2">
               <MapPin size={16} /> Ahmedabad, India
             </p>
+
             <p className="flex items-center justify-center md:justify-start gap-2">
-              <Phone size={16} /> +91 00000 00000
-            </p>
-            <p className="flex items-center justify-center md:justify-start gap-2">
-              <Mail size={16} /> info@hetweb.com
+              <Mail size={16} />
+              <a href="mailto:info@hetweb.com" className="hover:text-cyan-400 transition">
+                info@hetweb.com
+              </a>
             </p>
           </div>
 
           {/* SOCIAL */}
-          <div className="flex justify-center md:justify-start gap-4 mt-5">
-            <SocialIcon href="#" icon={<Facebook size={18} />} />
-            <SocialIcon href="#" icon={<Instagram size={18} />} />
-            <SocialIcon href="#" icon={<Linkedin size={18} />} />
+          <div className="flex justify-center md:justify-start gap-4 mt-6">
+            <SocialIcon href="https://facebook.com" icon={<Facebook size={18} />} />
+            <SocialIcon href="https://instagram.com" icon={<Instagram size={18} />} />
+            <SocialIcon href="https://linkedin.com" icon={<Linkedin size={18} />} />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* NEWSLETTER */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-4xl mx-auto px-6 py-10 text-center">
-          <h3 className="text-xl font-semibold mb-4">Subscribe to our newsletter</h3>
+      <div className="relative border-t border-cyan-500/10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto px-6 py-12 text-center"
+        >
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400 text-sm w-full sm:w-auto"
+              className="px-5 py-3 rounded-2xl bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400 text-sm w-full sm:w-80"
             />
-            <button className="px-6 py-3 rounded-xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 hover:opacity-90 transition">
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-7 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20"
+            >
               Subscribe
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* BOTTOM BAR */}
-      <div className="border-t border-gray-800 text-center py-5 text-gray-500 text-sm">
-        © {new Date().getFullYear()} Hetweb Solutions. All rights reserved.
+      {/* BOTTOM */}
+      <div className="border-t border-cyan-500/10 text-center py-6 text-gray-500 text-sm">
+        © {new Date().getFullYear()} Hetweb Solutions. Crafted with ❤️ in India.
       </div>
     </footer>
+  )
+}
+
+function FooterColumn({ title, children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h3 className="text-lg font-semibold mb-5 text-white">{title}</h3>
+      <div className="space-y-3 text-gray-400">{children}</div>
+    </motion.div>
   )
 }
 
@@ -92,7 +131,7 @@ function FooterLink({ to, label }) {
   return (
     <Link
       to={to}
-      className="block hover:text-cyan-400 transition duration-300"
+      className="block hover:text-cyan-400 hover:translate-x-1 transition duration-300"
     >
       {label}
     </Link>
@@ -101,13 +140,15 @@ function FooterLink({ to, label }) {
 
 function SocialIcon({ href, icon }) {
   return (
-    <a
+    <motion.a
+      whileHover={{ y: -4, scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="p-2 rounded-full bg-gray-900 border border-gray-700 hover:border-cyan-400 hover:text-cyan-400 transition duration-300"
+      className="p-3 rounded-full bg-gray-900 border border-gray-700 hover:border-cyan-400 hover:text-cyan-400 transition duration-300 shadow-md"
     >
       {icon}
-    </a>
+    </motion.a>
   )
 }
