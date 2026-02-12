@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from "lucide-react"
 import Herosection from "../assets/Hero-section.avif"
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 
 const services = [
@@ -56,6 +56,33 @@ const testimonials = [
   },
 ];
 
+const faq = [
+  {
+    question: 'How long does marketing take to show results?',
+    answer: 'Results depend on the strategy, but most clients start seeing improvement within the first few months.'
+  },
+  {
+    question: 'Do you work with startups?',
+    answer: 'Yes, we work with startups and established businesses alike.'
+  },
+  {
+    question: 'What services do you provide?',
+    answer: 'We provide a wide range of digital marketing services including SEO, social media marketing, content creation, and more.'
+  },
+  {
+    question: 'How do you measure marketing success?',
+    answer: 'We measure success through key performance indicators like website traffic, conversion rates, engagement metrics, and ROI.'
+  },
+  {
+    question: 'Will I get regular updates on my campaigns?',
+    answer: 'Yes, we provide regular progress reports and updates to keep you informed of campaign performance.'
+  },
+  {
+    question: 'Can you customize a strategy for my business?',
+    answer: 'Absolutely! We tailor our marketing strategies to fit your specific business goals and target audience.'
+  }
+]
+
 export default function Home() {
 
   const [index, setIndex] = useState(0);
@@ -68,7 +95,6 @@ export default function Home() {
     return items;
   };
 
-
   const visible = getVisible();
 
 
@@ -79,6 +105,9 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
+
+
+  const [openIndex, setOpenIndex] = useState(null);
 
 
   return (
@@ -281,11 +310,7 @@ export default function Home() {
           </h2>
 
           <div className="space-y-4">
-            {[
-              'How long does marketing take to show results?',
-              'Do you work with startups?',
-              'What services do you provide?'
-            ].map((q, i) => (
+            {faq.map((item, i) => (
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.03 }}
@@ -293,15 +318,32 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.15 }}
-                className="p-5 rounded-xl bg-black border border-cyan-500/20"
+                className="p-5 rounded-xl bg-black border border-cyan-500/20 cursor-pointer"
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <p className="font-medium">{q}</p>
-                <p className="text-gray-400 text-sm mt-2">
-                  Results depend on the strategy, but most clients start seeing
-                  improvement within the first few months.
-                </p>
+                {/* Question row */}
+                <div className="flex items-center justify-between">
+                  <p className="font-medium">{item.question}</p>
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform ${openIndex === i ? "rotate-180" : ""
+                      }`}
+                  />
+                </div>
+
+                {/* Answer */}
+                {openIndex === i && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    transition={{ duration: 0.3 }}
+                    className="text-gray-400 text-sm mt-2"
+                  >
+                    {item.answer}
+                  </motion.p>
+                )}
               </motion.div>
             ))}
+
           </div>
         </div>
       </motion.section>

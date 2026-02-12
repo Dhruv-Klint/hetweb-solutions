@@ -5,12 +5,12 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-black via-black/95 to-black border-t border-cyan-500/10 mt-24 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-black via-black/95 to-black border-t border-cyan-500/10 overflow-hidden">
 
       {/* Glow Background */}
       <div className="absolute inset-0 opacity-20 blur-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12 text-center md:text-left">
+      <div className="relative max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12 text-center md:text-left">
 
         {/* BRAND */}
         <motion.div
@@ -107,7 +107,7 @@ export default function Footer() {
 
       {/* BOTTOM */}
       <div className="border-t border-cyan-500/10 text-center py-6 text-gray-500 text-sm">
-        © {new Date().getFullYear()} Hetweb Solutions. Crafted with ❤️ in India.
+       © {new Date().getFullYear()} Hetweb Solutions. All rights reserved.
       </div>
     </footer>
   )
@@ -146,7 +146,7 @@ function SocialIcon({ href, icon }) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="p-3 rounded-full bg-gray-900 border border-gray-700 hover:border-cyan-400 hover:text-cyan-400 transition duration-300 shadow-md"
+      className="p-3 rounded-full bg-gray-900 border border-gray-700 hover:border-cyan-400 text-white hover:text-cyan-400 transition duration-300 shadow-md"
     >
       {icon}
     </motion.a>
