@@ -1,31 +1,35 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight } from "lucide-react"
 import Herosection from "../assets/Hero-section.avif"
 import { ChevronDown } from "lucide-react";
+import service1 from "../assets/SEO-Services.png"
+import service2 from "../assets/Social-Media-Marketing.png"
+import service3 from "../assets/Social-Media-Account-Creation.png"
+import service4 from "../assets/Bookmarking-Websites.png"
 
 const services = [
   {
-    image: "src/assets/SEO-Services.png",
+    image: service1,
     title: "Search Engine Optimization (SEO) Services",
     desc: "We turn social media into a powerful growth channel with engaging content, clear branding, and targeted strategies that boost visibility, attract customers, and deliver measurable results.",
     link: "/services/service1",
   },
   {
-    image: "src/assets/Social-Media-Marketing.png",
+    image: service2,
     title: "Social Media Marketing",
     desc: "We use social media to grow your brand with meaningful content, consistent voice, and targeted strategies that boost visibility, attract customers, and deliver measurable results.",
     link: "/services/service2",
   },
   {
-    image: "src/assets/Social-Media-Account-Creation.png",
+    image: service3,
     title: "Social Media Account Creation",
     desc: "We create and optimize professional social media profiles with consistent branding, secure handles, and fully configured details to give your business a strong, growth-ready first impression.",
     link: "/services/service3",
   },
   {
-    image: "src/assets/Bookmarking-Websites.png",
+    image: service4,
     title: "Bookmarking Website Services",
     desc: "We use social bookmarking to boost your website’s authority, speed up indexing, and build high-quality backlinks that drive traffic, visibility, and long-term SEO growth.",
     link: "/services/service4",

@@ -4,7 +4,6 @@ import { services } from "../data/services";
 
 export default function ServiceDetails() {
   const { id } = useParams();
-
   const service = services.find((s) => s.id === id);
 
   if (!service)
@@ -15,20 +14,41 @@ export default function ServiceDetails() {
     );
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-black via-black to-gray-950 py-24 px-4 min-h-screen">
-      {/* Glow background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/20 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/20 blur-3xl rounded-full" />
-      </div>
+    <section className="relative bg-black text-white min-h-screen">
+      {/* ===== HERO IMAGE ===== */}
+      {service.image && (
+        <div className="relative h-[300px] md:h-[420px] overflow-hidden">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover scale-105"
+          />
 
-      <div className="relative max-w-4xl mx-auto">
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+
+          {/* Title on image */}
+          <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
+            >
+              {service.title}
+            </motion.h1>
+          </div>
+        </div>
+      )}
+
+      {/* ===== CONTENT SECTION ===== */}
+      <div className="relative max-w-4xl mx-auto py-16 px-4">
         {/* Back Link */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="mb-8"
+          className="mb-10"
         >
           <Link
             to="/services"
@@ -38,20 +58,15 @@ export default function ServiceDetails() {
           </Link>
         </motion.div>
 
-        {/* Card */}
+        {/* Glass Card */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-10 shadow-2xl"
+          transition={{ duration: 0.6 }}
+          className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
         >
-          {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-            {service.title}
-          </h1>
-
-          {/* Description (supports array OR string) */}
-          <div className="mt-6 text-lg leading-relaxed text-gray-300 space-y-4">
+          {/* Description */}
+          <div className="text-gray-300 text-lg leading-relaxed space-y-5">
             {Array.isArray(service.description) ? (
               service.description.map((para, index) => (
                 <p key={index}>{para}</p>
@@ -61,9 +76,9 @@ export default function ServiceDetails() {
             )}
           </div>
 
-          {/* Features List */}
+          {/* Features */}
           {service.features && (
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-10 space-y-4">
               {service.features.map((feature, index) => (
                 <motion.li
                   key={index}
@@ -72,7 +87,7 @@ export default function ServiceDetails() {
                   transition={{ delay: index * 0.08 }}
                   className="flex items-start gap-3 text-gray-300"
                 >
-                  <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400" />
+                  <span className="mt-2 w-2 h-2 rounded-full bg-cyan-400" />
                   {feature}
                 </motion.li>
               ))}
@@ -84,11 +99,11 @@ export default function ServiceDetails() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-10"
+            className="mt-12"
           >
             <Link
               to="/contact"
-              className="inline-block px-8 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20 hover:scale-105 active:scale-95 transition"
+              className="inline-block px-10 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20 hover:scale-105 active:scale-95 transition"
             >
               Get This Service
             </Link>

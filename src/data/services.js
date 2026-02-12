@@ -1,8 +1,11 @@
+import { image } from "framer-motion/client";
+
 export const services = [
     {
         id: "service1",
         title: "Search Engine Optimization (SEO) Services",
         shortDescription: "Improve your search ranking and visibility.",
+        image: "src/assets/SEO-Services.png",
         description: [
             "In the modern digital marketplace, your website is only as valuable as its visibility. At Het Web Solutions, our comprehensive Search Engine Optimization (SEO) services are designed to transform your online presence from a hidden gem into a market leader. We understand that SEO is not a one-time setup but a continuous journey of adaptation and refinement. Our approach begins with a deep dive into your website's technical infrastructure, ensuring that search engine 'crawlers' can easily navigate, index, and understand your content. By fixing underlying technical issues such as site speed, mobile responsiveness, and broken architecture, we create a rock-solid foundation that allows your brand to climb the rankings naturallyy.",
             "Beyond the technicalities, we specialize in high-intent keyword intelligence. We don't just target the most popular words; we target the words your customers are actually using when they are ready to make a purchase or hire a service. This strategic alignment ensures that the traffic coming to your site isn't just a number—it's a stream of potential leads. We meticulously optimize your on-page elements, from meta-titles and descriptions to headers and body copy, ensuring every word serves a dual purpose: engaging the human reader and satisfying the search engine algorithm. This balance of user experience and technical optimization is what sets our SEO strategy apart from generic 'link-building' schemes.",
