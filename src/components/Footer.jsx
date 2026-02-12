@@ -44,7 +44,7 @@ export default function Footer() {
           <FooterLink to="/services/service1" label="SEO Services" />
           <FooterLink to="/services/service2" label="Social Media Marketing" />
           <FooterLink to="/services/service3" label="Account Creation" />
-          <FooterLink to="/services/service4" label="Bookmarking Websites" />
+          <FooterLink to="/services/service4" label="Bookmarking Websites Services" />
         </FooterColumn>
 
         {/* CONTACT */}

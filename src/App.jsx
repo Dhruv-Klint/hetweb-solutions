@@ -9,23 +9,23 @@ import { Routes, Route } from 'react-router-dom'
 
 
 function App() {
-return (
-<div>
-<Navbar />
+    return (
+        <div>
+            <Navbar />
 
 
-<Routes>
-<Route path="/" element={<Home />} />
-<Route path="/about" element={<About />} />
-<Route path="/contact" element={<Contact />} />
-<Route path="/services" element={<Services />} />
-<Route path="/services/:id" element={<ServiceDetails />} />
-</Routes>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/services/:id" element={<ServiceDetails />} />
+            </Routes>
 
 
-<Footer />
-</div>
-)
+            <Footer />
+        </div>
+    )
 }
 
 

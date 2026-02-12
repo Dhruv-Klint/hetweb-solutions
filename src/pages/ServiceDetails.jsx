@@ -17,7 +17,7 @@ export default function ServiceDetails() {
     <section className="relative bg-black text-white min-h-screen overflow-hidden">
       {/* ===== HERO IMAGE WITH PREMIUM OVERLAY ===== */}
       {service.image && (
-        <div className="relative h-[320px] md:h-[460px] overflow-hidden">
+        <div className="relative h-[320px] md:h-[350px] overflow-hidden">
           <motion.img
             src={service.image}
             alt={service.title}
