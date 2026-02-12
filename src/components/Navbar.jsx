@@ -32,28 +32,35 @@ export default function Navbar() {
                         onMouseEnter={() => setServicesOpen(true)}
                         onMouseLeave={() => setServicesOpen(false)}
                     >
-                        <motion.button
+                        <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.1, delay: 0.1 }}
-                            className={`relative flex items-center gap-1 transition duration-300 ${location.pathname.startsWith('/services') ? 'text-cyan-400' : 'hover:text-cyan-400'}`}
                         >
-                            <motion.span whileHover={{ y: -1 }}>Services</motion.span>
-
-                            <motion.span
-                                animate={{ rotate: servicesOpen ? 180 : 0 }}
-                                transition={{ duration: 0.3 }}
+                            <Link
+                                to="/services"
+                                className={`relative flex items-center gap-1 transition duration-300 ${location.pathname.startsWith('/services')
+                                        ? 'text-cyan-400'
+                                        : 'hover:text-cyan-400'
+                                    }`}
                             >
-                                <ChevronDown className="w-4 h-4" />
-                            </motion.span>
+                                <motion.span whileHover={{ y: -1 }}>Services</motion.span>
 
-                            {location.pathname.startsWith('/services') && (
                                 <motion.span
-                                    layoutId="underline"
-                                    className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"
-                                />
-                            )}
-                        </motion.button>
+                                    animate={{ rotate: servicesOpen ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <ChevronDown className="w-4 h-4" />
+                                </motion.span>
+
+                                {location.pathname.startsWith('/services') && (
+                                    <motion.span
+                                        layoutId="underline"
+                                        className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"
+                                    />
+                                )}
+                            </Link>
+                        </motion.div>
 
                         <AnimatePresence>
                             {servicesOpen && (
@@ -72,6 +79,7 @@ export default function Navbar() {
                             )}
                         </AnimatePresence>
                     </div>
+
 
                     <NavLink to="/about" active={location.pathname === '/about'} delay={0.2}>About</NavLink>
                     <NavLink to="/contact" active={location.pathname === '/contact'} delay={0.3}>Contact</NavLink>
