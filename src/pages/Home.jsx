@@ -1,32 +1,85 @@
+import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from "lucide-react"
 import Herosection from "../assets/Hero-section.avif"
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+
+const services = [
+  {
+    title: "Search Engine Optimization (SEO) Services",
+    desc: "Our company transforms social media into a strong growth channel for your brand. We create engaging content, maintain a clear brand voice, and connect your project with the right audience. Through smart strategy and targeted advertising, we increase visibility, attract customers, and deliver measurable results.",
+    link: "/services/service1",
+  },
+  {
+    title: "Social Media Marketing",
+    desc: "Our company uses social media as a powerful tool to grow your brand and connect with the right audience. We create meaningful content, maintain a consistent brand voice, and actively engage with your community. Through creative strategy and targeted advertising, we help your website or project gain visibility, attract customers, and deliver measurable results.",
+    link: "/services/service2",
+  },
+  {
+    title: "Social Media Account Creation",
+    desc: "Our company creates and sets up professional social media profiles that give your brand a strong first impression from day one. We secure consistent handles, write optimized bios, and design branded visuals that reflect your business identity. Every account is fully configured with proper links, contact details, and discovery settings. This ensures your project starts with a polished, ready-to-engage social presence that supports real business growth.",
+    link: "/services/service3",
+  },
+  {
+    title: "Bookmarking Website Services",
+    desc: "Our company uses social bookmarking to strengthen your website’s authority and improve faster search engine indexing. We manually submit your content to trusted, high-quality platforms with relevant tags and descriptions to reach the right audience. This process builds strong backlinks, drives referral traffic, and increases online visibility. As a result, your project gains better rankings, credibility, and long-term SEO growth.",
+    link: "/services/service4",
+  },
+]
+
+const testimonials = [
+  {
+    name: "Rahul Patel",
+    text: "Amazing service! Our website traffic and leads increased significantly within just a few months.",
+  },
+  {
+    name: "Priya Shah",
+    text: "Professional team with clear strategy and real measurable results. Highly recommended!",
+  },
+  {
+    name: "Amit Mehta",
+    text: "They transformed our social media presence and helped us reach the right customers.",
+  },
+  {
+    name: "Neha Desai",
+    text: "Great communication, fast delivery, and excellent SEO improvements for our business.",
+  },
+  {
+    name: "Karan Joshi",
+    text: "Reliable digital marketing partner. We saw real growth in engagement and conversions.",
+  },
+  {
+    name: "Sneha Trivedi",
+    text: "Creative, strategic, and result‑focused. One of the best teams we’ve worked with.",
+  },
+];
 
 export default function Home() {
 
-  const services = [
-    {
-      title: "Search Engine Optimization (SEO) Services",
-      desc: "Our company transforms social media into a strong growth channel for your brand. We create engaging content, maintain a clear brand voice, and connect your project with the right audience. Through smart strategy and targeted advertising, we increase visibility, attract customers, and deliver measurable results.",
-      link: "/services/service1",
-    },
-    {
-      title: "Social Media Marketing",
-      desc: "Our company uses social media as a powerful tool to grow your brand and connect with the right audience. We create meaningful content, maintain a consistent brand voice, and actively engage with your community. Through creative strategy and targeted advertising, we help your website or project gain visibility, attract customers, and deliver measurable results.",
-      link: "/services/service2",
-    },
-    {
-      title: "Social Media Account Creation",
-      desc: "Our company creates and sets up professional social media profiles that give your brand a strong first impression from day one. We secure consistent handles, write optimized bios, and design branded visuals that reflect your business identity. Every account is fully configured with proper links, contact details, and discovery settings. This ensures your project starts with a polished, ready-to-engage social presence that supports real business growth.",
-      link: "/services/service3",
-    },
-    {
-      title: "Bookmarking Website Services",
-      desc: "Our company uses social bookmarking to strengthen your website’s authority and improve faster search engine indexing. We manually submit your content to trusted, high-quality platforms with relevant tags and descriptions to reach the right audience. This process builds strong backlinks, drives referral traffic, and increases online visibility. As a result, your project gains better rankings, credibility, and long-term SEO growth.",
-      link: "/services/service4",
-    },
-  ]
+  const [index, setIndex] = useState(0);
+
+  const getVisible = () => {
+    const items = [];
+    for (let i = 0; i < 3; i++) {
+      items.push(testimonials[(index + i) % testimonials.length]);
+    }
+    return items;
+  };
+
+
+  const visible = getVisible();
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 3 >= testimonials.length ? 0 : prev + 1));
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
 
   return (
     <motion.div
@@ -147,39 +200,59 @@ export default function Home() {
 
 
       {/* TESTIMONIAL SECTION */}
-      <motion.section
-        className="py-20"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-12 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-            What Clients Say
-          </h2>
+      <section className="py-24 bg-black">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+              What Our Clients Say
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Real feedback from businesses that trust our digital marketing
+              expertise to grow their brand and increase results.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[1, 2].map((t, i) => (
-              <motion.div
-                key={t}
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="p-6 rounded-2xl bg-gray-900 border border-cyan-500/20"
+
+          {/* Slider */}
+          <div className="relative overflow-hidden">
+            <motion.div
+              className="flex gap-8"
+              animate={{ x: `-${(index * 100) / 3}%` }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+            >
+              {testimonials.map((t, i) => (
+                <div
+                  key={t.name + i}
+                  className="min-w-[340px] p-7 rounded-3xl bg-gradient-to-br from-gray-900 to-black border border-cyan-500/20 shadow-lg hover:shadow-cyan-500/20 transition justify-between flex flex-col"
+                >
+                  <p className="text-gray-300 leading-relaxed mb-5">"{t.text}"</p>
+                  <h4 className="font-semibold text-cyan-400">{t.name}</h4>
+                </div>
+              ))}
+            </motion.div>
+
+
+            {/* Navigation Buttons */}
+            {/* <div className="flex justify-center gap-4 mt-10">
+              <button
+                onClick={() => setIndex((prev) => (prev - 3 < 0 ? testimonials.length - 3 : prev - 1))}
+                className="p-3 rounded-full bg-gray-900 border border-cyan-500/30 hover:bg-cyan-500/10 transition"
               >
-                <p className="text-gray-300 mb-4">
-                  "Amazing service! Our business traffic increased massively
-                  after working with this team."
-                </p>
-                <h4 className="font-semibold text-cyan-400">Client {t}</h4>
-              </motion.div>
-            ))}
+                <ChevronLeft className="w-5 h-5 text-cyan-400" />
+              </button>
+
+
+              <button
+                onClick={() => setIndex((prev) => (prev + 3 >= testimonials.length ? 0 : prev + 1))}
+                className="p-3 rounded-full bg-gray-900 border border-cyan-500/30 hover:bg-cyan-500/10 transition"
+              >
+                <ChevronRight className="w-5 h-5 text-cyan-400" />
+              </button>
+            </div> */}
           </div>
         </div>
-      </motion.section>
+      </section>
 
 
       {/* FAQ SECTION */}
