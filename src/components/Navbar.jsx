@@ -81,8 +81,8 @@ export default function Navbar() {
                     </div>
 
 
-                    <NavLink to="/about" active={location.pathname === '/about'} delay={0.2}>About</NavLink>
-                    <NavLink to="/contact" active={location.pathname === '/contact'} delay={0.3}>Contact</NavLink>
+                    <NavLink to="/about" active={location.pathname === '/about'} delay={0.2}>About Us</NavLink>
+                    <NavLink to="/contact" active={location.pathname === '/contact'} delay={0.3}>Contact Us</NavLink>
                 </div>
 
                 {/* Mobile Icon */}

@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* SERVICES SECTION */}
       <motion.section
-        className="py-24 bg-gradient-to-b from-black via-gray-950 to-black"
+        className="bg-gradient-to-b from-black via-gray-950 to-black"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
