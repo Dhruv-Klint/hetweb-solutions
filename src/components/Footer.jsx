@@ -63,8 +63,8 @@ export default function Footer() {
 
             <p className="flex items-center justify-center md:justify-start gap-2">
               <Mail size={16} />
-              <a href="mailto:info@hetweb.com" className="hover:text-cyan-400 transition">
-                info@hetweb.com
+              <a href="mailto:dhruv.klint@gmail.com" className="hover:text-cyan-400 transition">
+                dhruv.klint@gmail.com
               </a>
             </p>
           </div>

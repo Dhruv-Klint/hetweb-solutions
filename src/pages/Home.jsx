@@ -5,26 +5,29 @@ import { ArrowRight } from "lucide-react"
 import Herosection from "../assets/Hero-section.avif"
 import { ChevronDown } from "lucide-react";
 
-
 const services = [
   {
+    image: "src/assets/SEO-Services.png",
     title: "Search Engine Optimization (SEO) Services",
-    desc: "Our company transforms social media into a strong growth channel for your brand. We create engaging content, maintain a clear brand voice, and connect your project with the right audience. Through smart strategy and targeted advertising, we increase visibility, attract customers, and deliver measurable results.",
+    desc: "We turn social media into a powerful growth channel with engaging content, clear branding, and targeted strategies that boost visibility, attract customers, and deliver measurable results.",
     link: "/services/service1",
   },
   {
+    image: "src/assets/Social-Media-Marketing.png",
     title: "Social Media Marketing",
-    desc: "Our company uses social media as a powerful tool to grow your brand and connect with the right audience. We create meaningful content, maintain a consistent brand voice, and actively engage with your community. Through creative strategy and targeted advertising, we help your website or project gain visibility, attract customers, and deliver measurable results.",
+    desc: "We use social media to grow your brand with meaningful content, consistent voice, and targeted strategies that boost visibility, attract customers, and deliver measurable results.",
     link: "/services/service2",
   },
   {
+    image: "src/assets/Social-Media-Account-Creation.png",
     title: "Social Media Account Creation",
-    desc: "Our company creates and sets up professional social media profiles that give your brand a strong first impression from day one. We secure consistent handles, write optimized bios, and design branded visuals that reflect your business identity. Every account is fully configured with proper links, contact details, and discovery settings. This ensures your project starts with a polished, ready-to-engage social presence that supports real business growth.",
+    desc: "We create and optimize professional social media profiles with consistent branding, secure handles, and fully configured details to give your business a strong, growth-ready first impression.",
     link: "/services/service3",
   },
   {
+    image: "src/assets/Bookmarking-Websites.png",
     title: "Bookmarking Website Services",
-    desc: "Our company uses social bookmarking to strengthen your website’s authority and improve faster search engine indexing. We manually submit your content to trusted, high-quality platforms with relevant tags and descriptions to reach the right audience. This process builds strong backlinks, drives referral traffic, and increases online visibility. As a result, your project gains better rankings, credibility, and long-term SEO growth.",
+    desc: "We use social bookmarking to boost your website’s authority, speed up indexing, and build high-quality backlinks that drive traffic, visibility, and long-term SEO growth.",
     link: "/services/service4",
   },
 ]
@@ -202,24 +205,33 @@ export default function Home() {
               >
                 <div className="h-full rounded-3xl bg-black p-7 flex flex-col justify-between shadow-xl transition-all duration-300 group-hover:shadow-cyan-500/20">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
-                      {service.title}
-                    </h3>
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-[380px] object-cover rounded-2xl mb-5"
+                    />
+
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <h3 className="text-xl md:text-2xl font-semibold text-white">
+                        {service.title}
+                      </h3>
+
+                      {/* Navigation Button */}
+                      <a
+                        href={service.link}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition border border-cyan-500/30 rounded-full px-4 py-2 whitespace-nowrap"
+                      >
+                        Learn more
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    </div>
+
                     <p className="text-gray-400 text-sm leading-relaxed">
                       {service.desc}
                     </p>
                   </div>
-
-
-                  {/* Navigation Button */}
-                  <a
-                    href={service.link}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition border border-cyan-500/30 rounded-full px-4 py-2 w-fit"
-                  >
-                    Learn more
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </a>
                 </div>
+
               </motion.div>
             ))}
           </div>
@@ -317,7 +329,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.15 }}
+                transition={{ duration: 0.3, delay: i * 0.1 }}
                 className="p-5 rounded-xl bg-black border border-cyan-500/20 cursor-pointer"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
