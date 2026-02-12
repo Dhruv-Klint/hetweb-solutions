@@ -200,7 +200,14 @@ export default function Home() {
 
 
       {/* TESTIMONIAL SECTION */}
-      <section className="py-24 bg-black">
+      <motion.section
+        className="py-24 bg-black"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+
         <div className="max-w-6xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
@@ -220,6 +227,10 @@ export default function Home() {
               className="flex gap-8"
               animate={{ x: `-${(index * 100) / 3}%` }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
             >
               {testimonials.map((t, i) => (
                 <div
@@ -252,7 +263,8 @@ export default function Home() {
             </div> */}
           </div>
         </div>
-      </section>
+      </motion.section>
+
 
 
       {/* FAQ SECTION */}
