@@ -1,3 +1,5 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser"
 import { Link } from "react-router-dom";
 import {
   Facebook,
@@ -8,11 +10,52 @@ import {
   MapPin,
   Phone,
   Clock,
+  ArrowRight
 } from "lucide-react";
 import logo from "../assets/logo.png";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Footer() {
+
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubscribed(true);
+    setEmail("");
+
+    setTimeout(() => {
+      setSubscribed(false);
+    }, 3000);
+
+    const templateParams = {
+      user_email: email,
+    }
+
+    emailjs
+      .send(
+        "service_pqfdqyr",
+        "template_djnchcq",
+        templateParams,
+        "ySGHCgkHcDujavsVQ"
+      )
+      .then(() => {
+        setSubscribed(true)
+        setEmail("")
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error)
+        alert("Something went wrong. Try again.")
+      })
+
+  };
+
+
+
+
+
+
   return (
     <footer className="relative bg-gradient-to-b from-black via-black/95 to-black border-t border-cyan-500/10 overflow-hidden">
       {/* Glow Background */}
@@ -29,10 +72,10 @@ export default function Footer() {
           <img
             src={logo}
             alt="Hetweb Logo"
-            className="h-16 w-auto object-contain mx-auto md:mx-0 drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]"
+            className="h-[88px] w-auto object-contain mx-auto md:mx-0 drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]"
           />
 
-          <p className="text-gray-300 mt-5 text-base leading-relaxed max-w-sm mx-auto md:mx-0">
+          <p className="text-gray-300 mt-2 text-base leading-relaxed max-w-sm mx-auto md:mx-0">
             We help startups and businesses grow with modern marketing,
             creative branding, and effective digital strategies that drive real
             results.
@@ -101,25 +144,60 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto px-6 py-12 text-center"
           >
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <h3 className="text-lg font-semibold mb-5 text-white">Get updates</h3>
+
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-3 justify-center"
+            >
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-5 py-3 rounded-2xl bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400 text-base w-full sm:w-80"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={subscribed}
+                className="px-5 py-3 rounded-2xl text-white bg-gray-900 border border-gray-500 focus:outline-none focus:border-cyan-400 text-base w-full disabled:opacity-50 placeholder-gray-300"
               />
 
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-7 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20"
+                type="submit"
+                disabled={subscribed}
+                // whileHover={{ scale: subscribed ? 1 : 1.05 }}
+                whileTap={{ scale: subscribed ? 1 : 0.95 }}
+                className="group px-7 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20 disabled:opacity-70"
               >
-                Subscribe
+                <span className={`relative inline-flex items-center justify-center ${subscribed ? "" : "group-hover:translate-x-6"} transition-transform duration-300`}>
+
+                  {/* Text */}
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={subscribed ? "thankyou" : "subscribe"}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-black"
+                    >
+                      {subscribed ? "Thank You" : "Subscribe"}
+                    </motion.span>
+                  </AnimatePresence>
+
+                  {/* Arrow */}
+                  {!subscribed && (
+                    <ArrowRight
+                      size={18}
+                      className="ml-2 transition-transform duration-300 group-hover:-translate-x-28"
+                    />
+                  )}
+                </span>
               </motion.button>
-            </div>
+
+            </form>
           </motion.div>
         </div>
+
       </div>
 
       {/* BOTTOM */}
@@ -138,8 +216,8 @@ function FooterColumn({ title, children }) {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <h3 className="text-lg font-semibold mb-5 text-white">{title}</h3>
-      <div className="space-y-3 text-gray-300">{children}</div>
+      <h3 className="text-lg font-semibold mb-5 text-white md:ml-8">{title}</h3>
+      <div className="space-y-3 text-gray-300 md:ml-8">{children}</div>
     </motion.div>
   );
 }
