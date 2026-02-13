@@ -10,11 +10,11 @@ export default function Navbar() {
     const location = useLocation()
 
     return (
-        <nav className="sticky top-0 z-50 bg-gradient-to-b from-black/90 to-black/70 backdrop-blur-2xl border-b border-cyan-500/20 shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
+        <nav className="sticky top-0 z-50 bg-gradient-to-b from-black/90 to-black/70 backdrop-blur-2xl border-b border-cyan-100/30 shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
             <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
 
                 {/* LEFT LINKS */}
-                <div className="hidden md:flex items-center space-x-10 text-gray-100 font-medium md:text-lg">
+                <div className="hidden md:flex items-center space-x-10 text-white font-medium md:text-lg">
                     <NavLink to="/" active={location.pathname === '/'} delay={0}>Home</NavLink>
 
                     {/* Services Dropdown (unchanged) */}
@@ -29,7 +29,7 @@ export default function Navbar() {
                             transition={{ duration: 0.1, delay: 0.1 }}
                         >
                             <Link
-                                to="/services"
+                                to="#"
                                 className={`relative flex items-center gap-1 transition duration-300 ${location.pathname.startsWith('/services')
                                     ? 'text-cyan-400'
                                     : 'hover:text-cyan-400'
@@ -47,7 +47,7 @@ export default function Navbar() {
                                 {location.pathname.startsWith('/services') && (
                                     <motion.span
                                         layoutId="underline"
-                                        className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"
+                                        className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-purple-500"
                                     />
                                 )}
                             </Link>
@@ -60,12 +60,12 @@ export default function Navbar() {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                                    className="absolute -left-1/2 -translate-x-1/2 mt-2 w-fit whitespace-nowrap rounded-3xl bg-black/95 border border-cyan-500/20 shadow-2xl backdrop-blur-xl p-2"
+                                    className="absolute -left-1/2 -translate-x-1/2 mt-2 w-fit whitespace-nowrap rounded-3xl bg-black/95 border border-cyan-300 shadow-2xl backdrop-blur-xl p-2"
                                 >
                                     <DropdownItem to="/services/seo-services" label="SEO services" />
                                     <DropdownItem to="/services/social-media-marketing" label="Social Media Marketing" />
                                     <DropdownItem to="/services/social-media-account-creation" label="Social Media Account Creation" />
-                                    <DropdownItem to="/services/bookmarking-website-services" label="Bookmarking Website Services" />
+                                    <DropdownItem to="/services/bookmarking-website-services" label="Bookmarking Services" />
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -77,30 +77,33 @@ export default function Navbar() {
 
 
                 {/* CENTER LOGO */}
-                <motion.img
-                    src={logo}
-                    alt="HETWEB Logo"
-                    className="h-28 w-auto object-contain drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
-                    initial={{ opacity: 0, y: -10, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.5, ease: 'easeOut' }}
-                />
+                <Link to="/">
+                    <motion.img
+                        src={logo}
+                        alt="HETWEB Logo"
+                        className="h-20 w-auto object-contain drop-shadow-[0_0_10px_rgba(34,211,238,0.6)] cursor-pointer"
+                        initial={{ opacity: 0, y: -10, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    />
+                </Link>
+
 
 
                 {/* RIGHT SIDE */}
                 <div className="hidden md:flex items-center space-x-6 text-gray-200 font-medium">
 
                     {/* Phone number (new but styled same) */}
-                    <span className="font-semibold text-white">
+                    <a href="tel:+919999999999" className="font-semibold text-white cursor-pointer">
                         +91 99999 99999
-                    </span>
+                    </a>
 
                     <NavLink
                         to="/contact"
                         active={location.pathname === '/contact'}
                         delay={0.4}
                         className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl 
-             bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 !text-black font-semibold shadow-lg shadow-cyan-500/20
+             bg-cyan-500 text-white font-semibold shadow-lg
              transition-all duration-300 hover:text-white"
                     >
 
@@ -159,7 +162,7 @@ function DropdownItem({ to, label }) {
     return (
         <Link
             to={to}
-            className="block px-4 py-2 text-md text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition rounded-xl"
+            className="block px-4 py-2 text-md text-gray-200 hover:bg-cyan-500 hover:text-cyan-300 transition rounded-xl"
         >
             {label}
         </Link>

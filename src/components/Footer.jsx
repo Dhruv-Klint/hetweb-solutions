@@ -53,13 +53,10 @@ export default function Footer() {
 
 
 
-
-
-
   return (
-    <footer className="relative bg-gradient-to-b from-black via-black/95 to-black border-t border-cyan-500/10 overflow-hidden">
+    <footer className="relative bg-black border-t border-cyan-500/10 overflow-hidden">
       {/* Glow Background */}
-      <div className="absolute inset-0 opacity-20 blur-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
+      <div className="absolute inset-0 opacity-20 blur-3xl bg-cyan-500/50" />
 
       <div className="relative max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12 text-center md:text-left">
         {/* BRAND */}
@@ -91,7 +88,7 @@ export default function Footer() {
         </motion.div>
 
         {/* QUICK LINKS */}
-        <FooterColumn title="Essential">
+        <FooterColumn title="Quick Links">
           <FooterLink to="/" label="Home" />
           <FooterLink to="/services" label="Services" />
           <FooterLink to="/" label="Blog" />
@@ -138,14 +135,14 @@ export default function Footer() {
         </motion.div>
 
         {/* NEWSLETTER */}
-        <div className="relative border-t border-cyan-500/10">
+        <div className="relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-5 text-white">Get updates</h3>
+            <h3 className="text-lg font-semibold mb-5 text-white">Get Service Insights</h3>
 
             <form
               onSubmit={handleSubmit}
@@ -158,24 +155,23 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={subscribed}
-                className="px-5 py-3 rounded-2xl text-white bg-gray-900 border border-gray-500 focus:outline-none focus:border-cyan-400 text-base w-full disabled:opacity-50 placeholder-gray-300"
+                className="px-5 py-3 rounded-2xl text-white bg-gray-950 border focus:outline-none focus:border-cyan-400 text-base w-full disabled:opacity-50 placeholder-gray-300"
               />
 
               <motion.button
                 type="submit"
                 disabled={subscribed}
-                // whileHover={{ scale: subscribed ? 1 : 1.05 }}
                 whileTap={{ scale: subscribed ? 1 : 0.95 }}
-                className="group px-7 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20 disabled:opacity-70"
+                className="group px-7 py-3 rounded-2xl font-semibold bg-cyan-500 shadow-lg disabled:opacity-70"
               >
-                <span className={`relative inline-flex items-center justify-center ${subscribed ? "" : "group-hover:-translate-x-6 "} transition-transform duration-300`}>
+                <span className={`relative inline-flex items-center justify-center ${subscribed ? "" : "group-hover:-translate-x-6"} transition-transform duration-300`}>
 
 
                   {/* Arrow */}
                   {!subscribed && (
                     <ArrowRight
                       size={18}
-                      className="mr-2 transition-transform duration-300 group-hover:translate-x-28 text-black group-hover:text-white"
+                      className="mr-2 transition-transform duration-300 group-hover:translate-x-28 text-white"
                     />
                   )}
 
@@ -187,7 +183,7 @@ export default function Footer() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.3 }}
-                      className="text-black group-hover:text-white"
+                      className="text-white"
                     >
                       {subscribed ? "Thank You" : "Subscribe"}
                     </motion.span>
@@ -204,7 +200,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM */}
-      <div className="border-t border-cyan-500/10 text-center py-6 text-gray-400 text-sm">
+      <div className="border-t border-cyan-500/10 text-center py-6 text-gray-300 text-sm">
         © {new Date().getFullYear()} Hetweb Solutions. All rights reserved.
       </div>
     </footer>

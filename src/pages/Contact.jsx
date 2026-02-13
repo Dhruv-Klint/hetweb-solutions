@@ -43,11 +43,11 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="space-y-6"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    <h1 className="text-4xl md:text-5xl font-bold text-cyan-500">
                         Let's Talk
                     </h1>
 
-                    <p className="text-gray-400 max-w-md leading-relaxed">
+                    <p className="text-gray-300 max-w-md leading-relaxed">
                         Ready to grow your brand, get more leads, and boost your online presence? Our digital marketing experts are here to create result-driven strategies tailored to your business. Contact us today and let's turn your goals into measurable success.
                     </p>
 
@@ -91,7 +91,7 @@ export default function Contact() {
                             onChange={() => setIsOpen(false)}
                             whileFocus={{ scale: 1.02 }}
                             transition={{ duration: 0.3 }}
-                            className="w-full appearance-none p-4 pr-12 rounded-2xl bg-black/60 border border-white/10 focus:border-cyan-400 outline-none transition text-gray-200"
+                            className="w-full appearance-none p-4 pr-12 rounded-2xl bg-black/60 border border-white/10 focus:border-cyan-400 outline-none transition text-gray-400"
                             defaultValue=""
                             required
                         >
@@ -128,7 +128,7 @@ export default function Contact() {
                         type="submit"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="w-full py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20"
+                        className="w-full py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-lg "
                     >
                         Submit
                     </motion.button>

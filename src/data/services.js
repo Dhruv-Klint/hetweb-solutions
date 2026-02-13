@@ -1,7 +1,15 @@
-import service1 from "../assets/seo-service-page.jpg"
-import service2 from "../assets/Social-Media-Marketing-page.jpg"
-import service3 from "../assets/Social-Media-Account-Creation-page.jpg"
-import service4 from "../assets/Bookmarking-Websites-service-page.jpg"
+import seo1 from "../assets/seo-1.jpg"
+import seo2 from "../assets/seo-2.jpg"
+import seo3 from "../assets/seo-3.jpg"
+import smm1 from "../assets/smm-1.jpg"
+import smm2 from "../assets/smm-2.jpg"
+import smm3 from "../assets/smm-3.jpg"
+import smac1 from "../assets/smac-1.jpg"
+import smac2 from "../assets/smac-2.jpg"
+import smac3 from "../assets/smac-3.jpg"
+import bs1 from "../assets/bs-1.jpg"
+import bs2 from "../assets/bs-2.jpg"
+import bs3 from "../assets/bs-3.jpg"
 
 export const services = [
     {
@@ -16,9 +24,9 @@ export const services = [
             "To ensure long-term dominance, we focus heavily on authority building and off-page SEO. In the eyes of Google, a website's authority is determined by the quality of its 'digital neighborhood'. We work to secure high-quality, relevant backlinks from reputable sources that signal to search engines that your business is a trusted authority in your niche. This holistic approach, combined with detailed monthly analytics and transparent reporting, allows you to see the tangible growth of your business. With Het Web Solutions, you aren't just buying SEO; you are investing in a sustainable digital asset that works for you 24/7."
         ],
         images: [
-            service1,
-            service1,
-            service1,
+            seo1,
+            seo2,
+            seo3,
         ]
     },
     {
@@ -31,9 +39,9 @@ export const services = [
             "Furthermore, we leverage the power of data-driven social media advertising to accelerate your growth. Organic reach is a great starting point, but paid social allows us to place your brand directly in front of the people most likely to buy from you. Through granular targeting-based on location, age, interests, and online behavior-we minimize waste and maximize your return on investment. Whether you are looking to build brand awareness, drive website traffic, or generate direct sales, our social media marketing experts craft campaigns that deliver measurable, high-impact results."
         ],
         images: [
-            service2,
-            service2,
-            service2,
+            smm3,
+            smm1,
+            smm2,
 
         ],
     },
@@ -47,15 +55,15 @@ export const services = [
             "In addition to text, we integrate your corporate identity through custom-designed visual elements. We create high-resolution profile images, cover photos, and 'Highlight' icons that align perfectly with your brand's color palette and typography. We also handle the technical backend, such as linking your accounts together, setting up business-specific categories, and ensuring that contact methods (email, phone, and address) are correctly mapped. By the time we hand over the keys, your social media presence will be a fully-functional, professional extension of your business, ready to engage with the world from the very first post."
         ],
         images: [
-            service3,
-            service3,
-            service3,
+            smac3,
+            smac1,
+            smac2,
 
         ],
     },
     {
         id: "bookmarking-website-services",
-        title: "Bookmarking Website Services",
+        title: "Bookmarking Services",
         shortDescription: "Improve visibility through social bookmarking.",
         description: [
             "In the competitive world of SEO, social bookmarking remains one of the most effective ways to boost a website's authority and speed up the indexing process. At Het Web Solutions, our Bookmarking Website Services provide your digital content with the 'social signals' it needs to be recognized by search engines as relevant and trending. By submitting your website links, blog posts, and service pages to high-authority social bookmarking sites, we create a network of backlinks that drive referral traffic and enhance your domain's credibility. This is a critical step for any business looking to gain an edge in search rankings.",
@@ -63,9 +71,9 @@ export const services = [
             "Beyond simple link building, our bookmarking service acts as a catalyst for search engine crawlers. When your links appear on high-traffic bookmarking sites, search engines like Google and Bing index your new pages much faster, allowing your updates to appear in search results in a fraction of the usual time. We provide you with detailed reporting on every submission, giving you full transparency into where your links are placed and how they are performing. With Het Web Solutions handling your social bookmarking, you can rest assured that your content is being strategically positioned to capture maximum visibility and authority."
         ],
         images: [
-            service4,
-            service4,
-            service4,
+            bs1,
+            bs2,
+            bs3,
         ]
     }
 ];

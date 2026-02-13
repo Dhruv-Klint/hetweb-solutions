@@ -54,7 +54,7 @@ export default function About() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.6 }}
-                        className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold leading-tight text-white"
                     >
                         We Build Digital Growth <br className="hidden md:block" /> That Matters
                     </motion.h1>
@@ -67,7 +67,7 @@ export default function About() {
                             transition={{ delay: 0.3, duration: 0.6 }}
                             className="space-y-4"
                         >
-                            <p className="text-gray-400 text-lg leading-relaxed">
+                            <p className="text-gray-300 text-lg leading-relaxed">
                                 Hetweb Solutions is a results-driven digital marketing agency dedicated to helping
                                 businesses grow online with smart strategy, creative execution, and measurable
                                 performance. From powerful SEO and engaging social media marketing to modern,
@@ -75,7 +75,7 @@ export default function About() {
                                 visitors into loyal customers.
                             </p>
 
-                            <p className="text-gray-400 leading-relaxed">
+                            <p className="text-gray-300 leading-relaxed">
                                 Our mission is simple - deliver real growth, transparent communication, and
                                 long-term success for every brand we work with. Whether you're a startup or an
                                 established company, we craft tailored solutions that match your goals and scale
@@ -117,7 +117,7 @@ export default function About() {
                                             {item.number.includes("%") && "%"}
                                         </h3>
 
-                                        <p className="text-gray-400 mt-2 text-sm">
+                                        <p className="text-gray-300 mt-2 text-sm">
                                             {item.label}
                                         </p>
                                     </motion.div>
@@ -138,7 +138,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-bold">
                     Ready to Grow Your Business Online?
                 </h2>
-                <p className="text-gray-400 mt-4">
+                <p className="text-gray-300 mt-4">
                     Let's create a powerful digital strategy that brings you more visibility, leads,
                     and long-term success.
                 </p>
@@ -147,7 +147,7 @@ export default function About() {
                     href="/contact"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-block mt-6 px-10 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20"
+                    className="inline-block mt-6 px-10 py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-lg"
                 >
                     Contact Us
                 </motion.a>

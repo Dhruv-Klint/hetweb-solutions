@@ -7,7 +7,7 @@ export default function ServiceCard({ service }) {
             <div>
 
                 <h3 className="text-xl font-semibold text-primary">{service.title}</h3>
-                <p className="text-gray-400 my-3">{service.shortDescription}</p>
+                <p className="text-gray-300 my-3">{service.shortDescription}</p>
             </div>
 
 

@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { services } from "../data/services";
+import { ArrowLeft } from "lucide-react";
 
 export default function ServiceDetails() {
   const { id } = useParams();
@@ -27,11 +28,13 @@ export default function ServiceDetails() {
           className="mb-12"
         >
           <Link
-            to="/services"
-            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition"
+            to="/#services"
+            className="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-500 transition"
           >
-            ← Back to Services
+            <ArrowLeft size={16} />
+            Back to View Other Services
           </Link>
+
         </motion.div>
 
         {/* Glass Card */}
@@ -45,12 +48,11 @@ export default function ServiceDetails() {
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/20 blur-3xl rounded-full" />
 
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl text-center font-extrabold mb-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl text-center font-extrabold mb-10 text-cyan-500">
             {service.title}
           </h1>
 
           {/* Description with images */}
-          {/* Description with alternating images */}
           <div className="space-y-20">
             {Array.isArray(service.description) &&
               service.description.map((para, index) => {
@@ -67,7 +69,7 @@ export default function ServiceDetails() {
                       }`}
                   >
                     {/* TEXT */}
-                    <p className="text-gray-300/90 md:text-base leading-relaxed ">
+                    <p className="text-gray-300 md:text-base leading-relaxed ">
                       {para}
                     </p>
 
@@ -117,9 +119,9 @@ export default function ServiceDetails() {
           >
             <Link
               to="/contact"
-              className="inline-block px-12 py-4 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-xl shadow-cyan-500/20 hover:scale-105 active:scale-95 transition"
+              className="inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl hover:scale-105 active:scale-95 transition"
             >
-              Get This Service
+              Request a Free Consultation
             </Link>
           </motion.div>
         </motion.div>

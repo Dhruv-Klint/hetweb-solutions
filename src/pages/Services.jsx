@@ -20,11 +20,11 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-500 to-purple-500 bg-clip-text text-transparent">
                         Our Services
                     </h2>
 
-                    <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">
                         We provide result-driven digital solutions designed to grow your brand, increase
                         visibility, and generate high-quality leads. Explore our core services below.
                     </p>
@@ -58,7 +58,7 @@ export default function Services() {
                             Not sure which service fits your business?
                         </h3>
 
-                        <p className="text-gray-400 mt-3 max-w-xl">
+                        <p className="text-gray-300 mt-3 max-w-xl">
                             Let our experts analyze your goals and recommend the perfect strategy to
                             accelerate your growth.
                         </p>
@@ -67,7 +67,7 @@ export default function Services() {
                             href="/contact"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-block mt-6 px-8 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20"
+                            className="inline-block mt-6 px-8 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-cyan-500 to-purple-500 shadow-lg "
                         >
                             Get Free Consultation
                         </motion.a>
