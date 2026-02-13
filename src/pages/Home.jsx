@@ -14,7 +14,7 @@ const services = [
     image: service1,
     title: "Search Engine Optimization (SEO) Services",
     desc: "We turn social media into a powerful growth channel with engaging content, clear branding, and targeted strategies that boost visibility, attract customers, and deliver measurable results.",
-    link: "/services/service1",
+    link: "/services/seo-services",
   },
   {
     image: service2,

@@ -15,49 +15,10 @@ export default function ServiceDetails() {
 
   return (
     <section className="relative bg-black text-white min-h-screen overflow-hidden">
-      {/* ===== HERO IMAGE WITH PREMIUM OVERLAY ===== */}
-      {service.image && (
-        <div className="relative h-[320px] md:h-[350px] overflow-hidden">
-          <motion.img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover scale-110"
-            initial={{ scale: 1.2, opacity: 0 }}
-            animate={{ scale: 1.05, opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          />
-
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-          {/* Glow effect */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-cyan-500/20 blur-3xl rounded-full" />
-
-          {/* Title content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="uppercase tracking-[0.3em] text-cyan-400 text-xs md:text-sm mb-4"
-            >
-              Our Service
-            </motion.p>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-3xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-xl"
-            >
-              {service.title}
-            </motion.h1>
-          </div>
-        </div>
-      )}
 
       {/* ===== CONTENT SECTION ===== */}
-      <div className="relative max-w-4xl mx-auto py-20 px-4">
+      <div className="relative max-w-7xl mx-auto py-20 px-4">
+
         {/* Back Link */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -78,23 +39,56 @@ export default function ServiceDetails() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="relative backdrop-blur-2xl bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 shadow-[0_0_60px_rgba(0,255,255,0.08)]"
+          className="relative backdrop-blur-2xl bg-white/5 rounded-[2rem] p-8 md:p-12 shadow-[0_0_60px_rgba(0,255,255,0.08)]"
         >
           {/* Decorative glow */}
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/20 blur-3xl rounded-full" />
 
-          {/* Description */}
-          <div className="relative text-gray-300 text-lg leading-relaxed space-y-6">
-            {Array.isArray(service.description) ? (
-              service.description.map((para, index) => (
-                <p key={index} className="text-gray-300/90">
-                  {para}
-                </p>
-              ))
-            ) : (
-              <p>{service.description}</p>
-            )}
+          {/* Title */}
+          <h1 className="text-3xl md:text-4xl text-center font-extrabold mb-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+            {service.title}
+          </h1>
+
+          {/* Description with images */}
+          {/* Description with alternating images */}
+          <div className="space-y-20">
+            {Array.isArray(service.description) &&
+              service.description.map((para, index) => {
+                const isReverse = index % 2 !== 0
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    className={`grid md:grid-cols-2 gap-10 items-center ${isReverse ? "md:[&>*:first-child]:order-2" : ""
+                      }`}
+                  >
+                    {/* TEXT */}
+                    <p className="text-gray-300/90 md:text-base leading-relaxed ">
+                      {para}
+                    </p>
+
+                    {/* IMAGE */}
+                    {service.images?.[index] && (
+                      <motion.img
+                        src={service.images[index]}
+                        alt={`service-${index}`}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="w-full rounded-2xl border border-white/10 shadow-lg"
+                      />
+                    )}
+                  </motion.div>
+                )
+              })}
           </div>
+
+
 
           {/* Features */}
           {service.features && (

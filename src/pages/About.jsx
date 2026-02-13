@@ -76,7 +76,7 @@ export default function About() {
                             </p>
 
                             <p className="text-gray-400 leading-relaxed">
-                                Our mission is simple — deliver real growth, transparent communication, and
+                                Our mission is simple - deliver real growth, transparent communication, and
                                 long-term success for every brand we work with. Whether you're a startup or an
                                 established company, we craft tailored solutions that match your goals and scale
                                 with your business.

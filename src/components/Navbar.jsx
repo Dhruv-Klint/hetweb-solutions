@@ -62,10 +62,10 @@ export default function Navbar() {
                                     transition={{ duration: 0.25, ease: 'easeOut' }}
                                     className="absolute -left-1/2 -translate-x-1/2 mt-2 w-fit whitespace-nowrap rounded-3xl bg-black/95 border border-cyan-500/20 shadow-2xl backdrop-blur-xl p-2"
                                 >
-                                    <DropdownItem to="/services/service1" label="SEO services" />
-                                    <DropdownItem to="/services/service2" label="Social Media Marketing" />
-                                    <DropdownItem to="/services/service3" label="Social Media Account Creation" />
-                                    <DropdownItem to="/services/service4" label="Bookmarking Website Services" />
+                                    <DropdownItem to="/services/seo-services" label="SEO services" />
+                                    <DropdownItem to="/services/social-media-marketing" label="Social Media Marketing" />
+                                    <DropdownItem to="/services/social-media-account-creation" label="Social Media Account Creation" />
+                                    <DropdownItem to="/services/bookmarking-website-services" label="Bookmarking Website Services" />
                                 </motion.div>
                             )}
                         </AnimatePresence>
