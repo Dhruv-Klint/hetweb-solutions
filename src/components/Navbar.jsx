@@ -11,22 +11,13 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-0 z-50 bg-gradient-to-b from-black/90 to-black/70 backdrop-blur-2xl border-b border-cyan-500/20 shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
-            <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-                {/* Logo */}
-                <motion.img
-                    src={logo}
-                    alt="HETWEB Logo"
-                    className="h-24 w-auto object-contain drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
-                    initial={{ opacity: 0, y: -10, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.5, ease: 'easeOut' }}
-                />
+            <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
 
-                {/* Desktop Links */}
-                <div className="hidden md:flex items-center space-x-14 text-gray-200 font-medium">
+                {/* LEFT LINKS */}
+                <div className="hidden md:flex items-center space-x-10 text-gray-100 font-medium md:text-lg">
                     <NavLink to="/" active={location.pathname === '/'} delay={0}>Home</NavLink>
 
-                    {/* Services Hover Dropdown */}
+                    {/* Services Dropdown (unchanged) */}
                     <div
                         className="relative"
                         onMouseEnter={() => setServicesOpen(true)}
@@ -40,8 +31,8 @@ export default function Navbar() {
                             <Link
                                 to="/services"
                                 className={`relative flex items-center gap-1 transition duration-300 ${location.pathname.startsWith('/services')
-                                        ? 'text-cyan-400'
-                                        : 'hover:text-cyan-400'
+                                    ? 'text-cyan-400'
+                                    : 'hover:text-cyan-400'
                                     }`}
                             >
                                 <motion.span whileHover={{ y: -1 }}>Services</motion.span>
@@ -80,12 +71,55 @@ export default function Navbar() {
                         </AnimatePresence>
                     </div>
 
-
-                    <NavLink to="/about" active={location.pathname === '/about'} delay={0.2}>About Us</NavLink>
-                    <NavLink to="/contact" active={location.pathname === '/contact'} delay={0.3}>Contact Us</NavLink>
+                    <NavLink to="/blog" active={location.pathname === '/blog'} delay={0.2}>Blog</NavLink>
+                    <NavLink to="/about" active={location.pathname === '/about'} delay={0.3}>About</NavLink>
                 </div>
 
-                {/* Mobile Icon */}
+
+                {/* CENTER LOGO */}
+                <motion.img
+                    src={logo}
+                    alt="HETWEB Logo"
+                    className="h-28 w-auto object-contain drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
+                    initial={{ opacity: 0, y: -10, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                />
+
+
+                {/* RIGHT SIDE */}
+                <div className="hidden md:flex items-center space-x-6 text-gray-200 font-medium">
+
+                    {/* Phone number (new but styled same) */}
+                    <span className="font-semibold text-white">
+                        +91 99999 99999
+                    </span>
+
+                    <NavLink
+                        to="/contact"
+                        active={location.pathname === '/contact'}
+                        delay={0.4}
+                        className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl 
+             bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 !text-black font-semibold shadow-lg shadow-cyan-500/20
+             transition-all duration-300 hover:text-white"
+                    >
+
+                        <ArrowRight
+                            size={16}
+                            className="transition-transform duration-300 group-hover:translate-x-24"
+                        />
+
+                        <span className="group-hover:-translate-x-5 transition-transform duration-300">
+                            Contact Us
+                        </span>
+
+
+                    </NavLink>
+
+                </div>
+
+
+                {/* Mobile Icon (unchanged) */}
                 <motion.button
                     whileTap={{ scale: 0.8 }}
                     whileHover={{ scale: 1.1 }}
@@ -96,90 +130,49 @@ export default function Navbar() {
                     <Menu />
                 </motion.button>
             </div>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {open && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.25 }}
-                        className="md:hidden bg-black/95 border-t border-cyan-500/20 backdrop-blur-xl px-6 py-4 space-y-4"
-                    >
-                        <MobileLink to="/" label="Home" />
-                        <MobileLink to="/services/service1" label="Web Development" />
-                        <MobileLink to="/services/service2" label="UI/UX Design" />
-                        <MobileLink to="/services/service3" label="SEO Optimization" />
-                        <MobileLink to="/about" label="About" />
-                        <MobileLink to="/contact" label="Contact" />
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </nav>
+
     )
 }
 
-function NavLink({ to, children, active, delay = 0 }) {
+function NavLink({ to, children, active, className, delay = 0 }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay }}
+            transition={{ duration: 0.35, delay }}
             whileHover={{ y: -2 }}
         >
             <Link
                 to={to}
-                className={`relative transition duration-300 ${active ? 'text-cyan-400' : 'hover:text-cyan-400'}`}
+                className={`relative transition duration-300 ${active ? 'text-cyan-400' : 'hover:text-cyan-400'
+                    } ${className || ''}`}
             >
-                <motion.span
-                    initial={{ letterSpacing: '0em' }}
-                    animate={{ letterSpacing: '0.02em' }}
-                    whileHover={{ letterSpacing: '0.06em' }}
-                    transition={{ duration: 0.25 }}
-                >
-                    {children}
-                </motion.span>
-
-                {active ? (
-                    <motion.span
-                        layoutId="underline"
-                        className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"
-                    />
-                ) : (
-                    <motion.span
-                        className="absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"
-                        whileHover={{ width: '100%' }}
-                        transition={{ duration: 0.3 }}
-                    />
-                )}
+                {children}
             </Link>
         </motion.div>
     )
 }
 
+
 function DropdownItem({ to, label }) {
     return (
-        <motion.div whileHover={{ x: 8 }} transition={{ type: 'spring', stiffness: 220 }}>
-            <Link
-                to={to}
-                className="flex items-center justify-between px-4 py-3 text-sm text-gray-200 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-purple-500/20 hover:text-cyan-300 transition rounded-2xl"
-            >
-                {label}
-            </Link>
-        </motion.div>
+        <Link
+            to={to}
+            className="block px-4 py-2 text-md text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition rounded-xl"
+        >
+            {label}
+        </Link>
     )
 }
 
 function MobileLink({ to, label }) {
     return (
-        <motion.div whileTap={{ scale: 0.95 }} whileHover={{ x: 4 }}>
-            <Link
-                to={to}
-                className="block text-gray-200 hover:text-cyan-400 transition text-lg"
-            >
-                {label}
-            </Link>
-        </motion.div>
+        <Link
+            to={to}
+            className="block text-gray-200 hover:text-cyan-400 transition text-md"
+        >
+            {label}
+        </Link>
     )
 }

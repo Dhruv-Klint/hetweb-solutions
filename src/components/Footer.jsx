@@ -168,7 +168,16 @@ export default function Footer() {
                 whileTap={{ scale: subscribed ? 1 : 0.95 }}
                 className="group px-7 py-3 rounded-2xl font-semibold text-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/20 disabled:opacity-70"
               >
-                <span className={`relative inline-flex items-center justify-center ${subscribed ? "" : "group-hover:translate-x-6"} transition-transform duration-300`}>
+                <span className={`relative inline-flex items-center justify-center ${subscribed ? "" : "group-hover:-translate-x-6 "} transition-transform duration-300`}>
+
+
+                  {/* Arrow */}
+                  {!subscribed && (
+                    <ArrowRight
+                      size={18}
+                      className="mr-2 transition-transform duration-300 group-hover:translate-x-28 text-black group-hover:text-white"
+                    />
+                  )}
 
                   {/* Text */}
                   <AnimatePresence mode="wait">
@@ -178,19 +187,13 @@ export default function Footer() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.3 }}
-                      className="text-black"
+                      className="text-black group-hover:text-white"
                     >
                       {subscribed ? "Thank You" : "Subscribe"}
                     </motion.span>
                   </AnimatePresence>
 
-                  {/* Arrow */}
-                  {!subscribed && (
-                    <ArrowRight
-                      size={18}
-                      className="ml-2 transition-transform duration-300 group-hover:-translate-x-28"
-                    />
-                  )}
+
                 </span>
               </motion.button>
 
