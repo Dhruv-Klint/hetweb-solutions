@@ -170,21 +170,23 @@ export default function Home() {
               boost visibility, generate leads, and scale faster than ever.
             </p>
 
-            <motion.div className="">
+            <motion.div>
               <button
                 onClick={() => {
                   const section = document.getElementById("services");
                   section?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="group inline-block mt-4 px-8 py-3 rounded-2xl font-semibold text-white bg-cyan-500 transition duration-300"
+                className="group inline-flex items-center mt-4 px-8 py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition duration-300 overflow-hidden"
               >
-                <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-28 transition-transform duration-300" />
-                <span className="group-hover:-translate-x-8 transition-transform duration-300">
-                  View Services
-
+                <span className="inline-flex items-center gap-2">
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-28" />
+                  <span className="transition-transform duration-300 group-hover:-translate-x-8">
+                    View Services
+                  </span>
                 </span>
               </button>
             </motion.div>
+
 
           </motion.div>
 
