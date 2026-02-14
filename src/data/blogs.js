@@ -1,4 +1,4 @@
-import blog1 from '../assets/Blog-1.jpg'
+import blog1 from '../assets/BLog-1.jpg'
 import blog2 from '../assets/Blog-2.jpg'
 import blog3 from '../assets/Blog-3.jpg'
 import blog4 from '../assets/Blog-4.jpg'
