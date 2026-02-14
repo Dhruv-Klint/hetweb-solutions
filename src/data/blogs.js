@@ -69,9 +69,9 @@ const blogs = [
         tags: ["AI Tools", "Automation", "Personalization"],
 
         content: `AI-driven analytics, automated customer journeys, and predictive targeting are redefining how brands connect with audiences.
-  Businesses can now analyze behavior in real time, personalize messaging instantly, and optimize campaigns without manual effort.
-  In 2026, marketers who adopt AI gain a strong competitive advantage through efficiency, accuracy, and deeper customer understanding.
-  The future of marketing belongs to brands that combine human creativity with intelligent automation.`,
+        Businesses can now analyze behavior in real time, personalize messaging instantly, and optimize campaigns without manual effort.
+        In 2026, marketers who adopt AI gain a strong competitive advantage through efficiency, accuracy, and deeper customer understanding.
+        The future of marketing belongs to brands that combine human creativity with intelligent automation.`,
     },
     {
         slug: "website-speed-optimization-guide",
@@ -84,10 +84,11 @@ const blogs = [
         readTime: "4 min read",
         tags: ["Page Speed", "Core Web Vitals", "UX"],
 
-        content: `Slow websites lead to higher bounce rates, lower engagement, and lost revenue opportunities.
-  Optimizing images, enabling caching, reducing unused code, and using fast hosting significantly improve performance.
-  Search engines prioritize fast, user-friendly websites, making speed a critical SEO ranking factor in 2026.
-  Investing in performance optimization ensures smoother experiences, better trust, and higher conversion rates.`,
+        content: `
+        Slow websites lead to higher bounce rates, lower engagement, and lost revenue opportunities.
+        Optimizing images, enabling caching, reducing unused code, and using fast hosting significantly improve performance.
+        Search engines prioritize fast, user-friendly websites, making speed a critical SEO ranking factor in 2026.
+        Investing in performance optimization ensures smoother experiences, better trust, and higher conversion rates.`,
     },
     {
         slug: "local-seo-strategies-2026",
@@ -100,10 +101,11 @@ const blogs = [
         readTime: "3 min read",
         tags: ["Google Business", "Reviews", "Local Ranking"],
 
-        content: `Optimizing your business profile, maintaining consistent contact information, and gathering positive customer reviews are essential for strong local visibility.
-  Location-focused keywords and locally relevant content help search engines connect your services with nearby users.
-  In 2026, voice search and mobile discovery make local SEO more important than ever for small and medium businesses.
-  A strong local presence builds trust, increases foot traffic, and drives long-term growth within your community.`,
+        content: `
+        Optimizing your business profile, maintaining consistent contact information, and gathering positive customer reviews are essential for strong local visibility.
+        Location-focused keywords and locally relevant content help search engines connect your services with nearby users.
+        In 2026, voice search and mobile discovery make local SEO more important than ever for small and medium businesses.
+        A strong local presence builds trust, increases foot traffic, and drives long-term growth within your community.`,
     }
 
 ];
