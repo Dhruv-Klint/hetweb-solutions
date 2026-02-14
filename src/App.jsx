@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import ServiceDetails from './pages/ServiceDetails'
 import { Routes, Route } from 'react-router-dom'
 import Blog from './pages/Blog'
+import BlogDetail from './pages/BlogDetail'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogDetail />} />
                 {/* <Route path="/services" element={<Services />} /> */}
                 <Route path="/services/:id" element={<ServiceDetails />} />
             </Routes>
