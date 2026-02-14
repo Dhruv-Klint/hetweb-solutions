@@ -61,7 +61,7 @@ export default function Navbar() {
                                     transition={{ duration: 0.25, ease: 'easeOut' }}
                                     className="absolute -left-1/2 -translate-x-1/2 mt-2 w-fit whitespace-nowrap rounded-3xl bg-black/95 border border-gray-500 shadow-2xl backdrop-blur-xl p-2"
                                 >
-                                    <DropdownItem to="/services/seo-services" label="SEO services" />
+                                    <DropdownItem to="/services/seo-services" label="SEO" />
                                     <DropdownItem to="/services/social-media-marketing" label="Social Media Marketing" />
                                     <DropdownItem to="/services/social-media-account-creation" label="Social Media Account Creation" />
                                     <DropdownItem to="/services/bookmarking-website-services" label="Bookmarking Services" />
@@ -161,7 +161,7 @@ function DropdownItem({ to, label }) {
     return (
         <Link
             to={to}
-            className="block px-4 py-2 text-md text-gray-200 hover:text-cyan-400 transition rounded-xl"
+            className="block px-4 py-2 text-base text-gray-200 hover:text-cyan-400 transition rounded-xl"
         >
             {label}
         </Link>

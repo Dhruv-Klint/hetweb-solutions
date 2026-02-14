@@ -165,27 +165,24 @@ export default function Home() {
               Digital Marketing That Grows Your Business
             </h1>
 
-            <p className="text-gray-300 text-lg max-w-xl">
-              We provide modern marketing solutions for startups and companies to
-              boost visibility, generate leads, and scale faster than ever.
+            <p className="text-gray-300 text-lg max-w-xl md:w-[88%]">
+              We deliver data-driven marketing solutions that help startups and growing businesses boost visibility, attract quality leads, and build strong brands for long-term success.
             </p>
 
             <motion.div>
-              <button
-                onClick={() => {
-                  const section = document.getElementById("services");
-                  section?.scrollIntoView({ behavior: "smooth" });
-                }}
+              <Link
+                to="/contact"
                 className="group inline-flex items-center mt-4 px-8 py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition duration-300 overflow-hidden"
               >
                 <span className="inline-flex items-center gap-2">
-                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-28" />
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-20" />
                   <span className="transition-transform duration-300 group-hover:-translate-x-8">
-                    View Services
+                    Let's Talk
                   </span>
                 </span>
-              </button>
+              </Link>
             </motion.div>
+
 
 
           </motion.div>
@@ -344,7 +341,7 @@ export default function Home() {
       >
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Frequently Asked Questions
+            Frequently Asked Queries
           </h2>
 
           <div className="space-y-4">

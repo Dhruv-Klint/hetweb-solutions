@@ -103,17 +103,25 @@ export default function BlogDetail() {
                         generate leads, and boost conversions with proven strategies.
                     </p>
 
-                    <Link
-                        to="/contact"
-                        className="group inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className=""
                     >
-                        <span className="inline-flex items-center gap-2">
-                            <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-44 transition-transform duration-300" />
-                            <span className="group-hover:-translate-x-8 transition-transform duration-300">
-                                Get Free Consultation
+                        <Link
+                            to="/contact"
+                            className="group inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
+                        >
+                            <span className="inline-flex items-center gap-2">
+                                <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-[88px] transition-transform duration-300" />
+                                <span className="group-hover:-translate-x-8 transition-transform duration-300">
+                                    Let's Talk
+                                </span>
+
                             </span>
-                        </span>
-                    </Link>
+                        </Link>
+                    </motion.div>
 
                 </motion.div>
             </div>

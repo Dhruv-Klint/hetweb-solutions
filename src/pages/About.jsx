@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* Counter component */
 function Counter({ value }) {
@@ -27,7 +28,7 @@ export default function About() {
     ];
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-black via-black to-gray-950 text-white py-24 px-4">
+        <section className="relative overflow-hidden bg-gradient-to-b from-black via-black to-gray-950 text-white py-16 px-4">
             {/* Glow Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/20 blur-3xl rounded-full" />
@@ -35,37 +36,33 @@ export default function About() {
             </div>
 
             <div className="relative max-w-6xl mx-auto">
-                {/* Left Content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
+
+                {/* Badge */}
+                <motion.span
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="space-y-8"
+                    className="inline-block mb-6 px-4 py-1 text-sm rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-400"
                 >
-                    <motion.span
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="inline-block px-4 py-1 text-sm rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-400"
-                    >
-                        About Our Company
-                    </motion.span>
+                    About Our Company
+                </motion.span>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                        className="text-4xl md:text-5xl font-bold leading-tight text-white"
-                    >
-                        We Build Digital Growth <br className="hidden md:block" /> That Matters
-                    </motion.h1>
+                {/* Main Grid */}
+                <div className="grid md:grid-cols-2 gap-12 items-center">
 
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        {/* Text Content */}
+                    {/* LEFT CONTENT */}
+                    <div className="space-y-6">
+
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-4xl md:text-5xl font-bold leading-tight"
+                        >
+                            We Build Digital Growth <br className="hidden md:block" /> That Matters
+                        </motion.h1>
+
                         <motion.div
                             initial={{ opacity: 0, x: -40 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3, duration: 0.6 }}
                             className="space-y-4"
                         >
                             <p className="text-gray-300 text-lg leading-relaxed">
@@ -83,79 +80,69 @@ export default function About() {
                                 with your business.
                             </p>
                         </motion.div>
-
-                        {/* Stats */}
-                        <motion.div
-                            initial="hidden"
-                            animate="visible"
-                            variants={{
-                                hidden: {},
-                                visible: {
-                                    transition: {
-                                        staggerChildren: 0.12,
-                                    },
-                                },
-                            }}
-                            className="grid grid-cols-2 gap-6"
-                        >
-                            {stats.map((item, i) => {
-                                const numericValue = parseInt(item.number);
-
-                                return (
-                                    <motion.div
-                                        key={i}
-                                        variants={{
-                                            hidden: { opacity: 0, y: 30 },
-                                            visible: { opacity: 1, y: 0 },
-                                        }}
-                                        whileHover={{ scale: 1.05 }}
-                                        transition={{ duration: 0.4 }}
-                                        className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl text-center"
-                                    >
-                                        <h3 className="text-3xl font-bold text-cyan-400">
-                                            <Counter value={numericValue} />
-                                            {item.number.includes("+") && "+"}
-                                            {item.number.includes("%") && "%"}
-                                        </h3>
-
-                                        <p className="text-gray-300 mt-2 text-sm">
-                                            {item.label}
-                                        </p>
-                                    </motion.div>
-                                );
-                            })}
-                        </motion.div>
                     </div>
-                </motion.div>
+
+                    {/* RIGHT STATS */}
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={{
+                            hidden: {},
+                            visible: { transition: { staggerChildren: 0.12 } },
+                        }}
+                        className="grid grid-cols-2 gap-6"
+                    >
+                        {stats.map((item, i) => {
+                            const numericValue = parseInt(item.number);
+
+                            return (
+                                <motion.div
+                                    key={i}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 30 },
+                                        visible: { opacity: 1, y: 0 },
+                                    }}
+                                    whileHover={{ scale: 1.05 }}
+                                    className="p-6 md:py-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl text-center"
+                                >
+                                    <h3 className="text-3xl font-bold text-cyan-400">
+                                        <Counter value={numericValue} />
+                                        {item.number.includes("+") && "+"}
+                                        {item.number.includes("%") && "%"}
+                                    </h3>
+
+                                    <p className="text-gray-300 mt-2 text-sm">{item.label}</p>
+                                </motion.div>
+                            );
+                        })}
+                    </motion.div>
+                </div>
             </div>
 
             {/* Bottom CTA */}
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
                 className="relative max-w-4xl mx-auto mt-20 text-center"
             >
                 <h2 className="text-3xl md:text-4xl font-bold">
                     Ready to Grow Your Business Online?
                 </h2>
+
                 <p className="text-gray-300 mt-4">
-                    Let's create a powerful digital strategy that brings you more visibility, leads,
-                    and long-term success.
+                    Let's create a powerful digital strategy that increases your online visibility,
+                    attracts high-quality <br className="hidden md:block" /> leads, and drives sustainable long-term business growth.
                 </p>
 
-                <motion.a
-                    href="/contact"
-                    className="group inline-block mt-6 px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
+                <Link
+                    to="/contact"
+                    className="group inline-flex items-center mt-6 px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition overflow-hidden"
                 >
-                    <span className="inline-flex items-center gap-2">
-                        <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-24 transition-transform duration-300" />
-                        <span className="group-hover:-translate-x-8 transition-transform duration-300">
-                            Contact Us
-                        </span>
+                    <ArrowRight className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-x-20" />
+                    <span className="transition-transform duration-300 group-hover:-translate-x-8">
+                        Let's Talk
                     </span>
-                </motion.a>
-
+                </Link>
             </motion.div>
         </section>
     );

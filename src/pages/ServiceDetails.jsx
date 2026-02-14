@@ -18,7 +18,7 @@ export default function ServiceDetails() {
     <section className="relative bg-black text-white min-h-screen overflow-hidden">
 
       {/* ===== CONTENT SECTION ===== */}
-      <div className="relative max-w-7xl mx-auto py-20 px-4">
+      <div className="relative max-w-7xl mx-auto py-10 px-4">
 
         {/* Back Link */}
         <motion.div
@@ -32,7 +32,7 @@ export default function ServiceDetails() {
             className="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-500 transition"
           >
             <ArrowLeft size={16} />
-            Back to View Other Services
+            Back to All Services
           </Link>
 
         </motion.div>
@@ -122,9 +122,9 @@ export default function ServiceDetails() {
               className="group inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
             >
               <span className="inline-flex items-center gap-2">
-                <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-56 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-[88px] transition-transform duration-300" />
                 <span className="group-hover:-translate-x-8 transition-transform duration-300">
-                  Request a Free Consultation
+                  Let's Talk
                 </span>
 
               </span>

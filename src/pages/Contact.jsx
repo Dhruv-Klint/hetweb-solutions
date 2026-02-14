@@ -93,9 +93,8 @@ export default function Contact() {
                             transition={{ duration: 0.3 }}
                             className="w-full appearance-none p-4 pr-12 rounded-2xl bg-black/60 border border-white/10 focus:border-cyan-400 outline-none transition text-gray-400"
                             defaultValue=""
-                            required
                         >
-                            <option value="">Select a Service*</option>
+                            <option value="">Select a Service</option>
                             <option>SEO Optimization</option>
                             <option>Social Media Marketing</option>
                             <option>Website Development</option>
@@ -118,7 +117,7 @@ export default function Contact() {
                         whileFocus={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
                         rows={4}
-                        placeholder="Message*"
+                        placeholder="Enter Your Query Here..."
                         className="w-full p-4 rounded-2xl bg-black/60 border border-white/10 focus:border-cyan-400 outline-none transition text-gray-200"
                         required
                     />
