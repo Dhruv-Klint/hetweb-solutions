@@ -90,7 +90,7 @@ export default function Footer() {
         {/* QUICK LINKS */}
         <FooterColumn title="Quick Links">
           <FooterLink to="/" label="Home" />
-          <FooterLink to="/services" label="Services" />
+          <FooterLink to="/#services" label="Services" />
           <FooterLink to="/blog" label="Blog" />
           <FooterLink to="/about" label="About Us" />
           <FooterLink to="/contact" label="Contact Us" />

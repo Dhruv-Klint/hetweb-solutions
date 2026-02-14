@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { ArrowRight } from "lucide-react"
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight, ArrowUp } from "lucide-react"
 import Herosection from "../assets/Hero-section.avif"
 import { ChevronDown } from "lucide-react";
 import service1 from "../assets/SEO-Services.png"
@@ -124,6 +124,22 @@ export default function Home() {
       section?.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
+
+
+  const [showScroll, setShowScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
 
   return (
@@ -363,6 +379,28 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
+
+      {/* SCROLL TO TOP BUTTON */}
+      <AnimatePresence>
+        {showScroll && (
+          <motion.button
+            onClick={scrollToTop}
+            initial={{ opacity: 0, y: 60, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 60, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="fixed bottom-6 right-6 z-50 p-4 rounded-full
+                 bg-cyan-500 text-white shadow-lg
+                 hover:bg-cyan-600 hover:shadow-cyan-500/40
+                 transition-all duration-300"
+          >
+            <ArrowUp size={22} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
 
     </motion.div>
   )

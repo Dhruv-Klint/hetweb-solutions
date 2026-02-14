@@ -17,7 +17,6 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center space-x-10 text-white font-medium md:text-lg">
                     <NavLink to="/" active={location.pathname === '/'} delay={0}>Home</NavLink>
 
-                    {/* Services Dropdown (unchanged) */}
                     <div
                         className="relative"
                         onMouseEnter={() => setServicesOpen(true)}
@@ -60,7 +59,7 @@ export default function Navbar() {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                                    className="absolute -left-1/2 -translate-x-1/2 mt-2 w-fit whitespace-nowrap rounded-3xl bg-black/95 border border-cyan-300 shadow-2xl backdrop-blur-xl p-2"
+                                    className="absolute -left-1/2 -translate-x-1/2 mt-2 w-fit whitespace-nowrap rounded-3xl bg-black/95 border border-gray-500 shadow-2xl backdrop-blur-xl p-2"
                                 >
                                     <DropdownItem to="/services/seo-services" label="SEO services" />
                                     <DropdownItem to="/services/social-media-marketing" label="Social Media Marketing" />
@@ -162,7 +161,7 @@ function DropdownItem({ to, label }) {
     return (
         <Link
             to={to}
-            className="block px-4 py-2 text-md text-gray-200 hover:bg-cyan-500 hover:text-cyan-300 transition rounded-xl"
+            className="block px-4 py-2 text-md text-gray-200 hover:text-cyan-400 transition rounded-xl"
         >
             {label}
         </Link>
