@@ -151,7 +151,7 @@ export default function Home() {
     >
 
       {/* HERO SECTION */}
-      <section className="min-h-screen flex items-center">
+      <section className="min-h-[90vh] flex items-center">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
           {/* LEFT CONTENT */}
@@ -170,15 +170,19 @@ export default function Home() {
               boost visibility, generate leads, and scale faster than ever.
             </p>
 
-            <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
+            <motion.div className="">
               <button
                 onClick={() => {
                   const section = document.getElementById("services");
                   section?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-block mt-4 px-8 py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-lg hover:shadow-cyan-500/40 transition duration-300"
+                className="group inline-block mt-4 px-8 py-3 rounded-2xl font-semibold text-white bg-cyan-500 transition duration-300"
               >
-                View Services
+                <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-28 transition-transform duration-300" />
+                <span className="group-hover:-translate-x-8 transition-transform duration-300">
+                  View Services
+
+                </span>
               </button>
             </motion.div>
 
@@ -206,7 +210,7 @@ export default function Home() {
       {/* SERVICES SECTION */}
       <motion.section
         id="services"
-        className="bg-gradient-to-b from-black via-gray-950 to-black md:pt-28"
+        className="bg-gradient-to-b from-black via-gray-950 to-black"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -244,7 +248,7 @@ export default function Home() {
                       <img
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-[380px] object-cover rounded-2xl mb-5 hover:scale-[1.02] transition-transform duration-300"
+                        className="w-full h-[280px] object-cover rounded-2xl mb-5 hover:scale-[1.02] transition-transform duration-300"
                       />
                     </Link>
 
@@ -389,11 +393,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 60, scale: 0.8 }}
             transition={{ duration: 0.3 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             className="fixed bottom-6 right-6 z-50 p-4 rounded-full
-                 bg-cyan-500 text-white shadow-lg
-                 hover:bg-cyan-600 hover:shadow-cyan-500/40
+                 bg-cyan-500 text-white hover:bg-white
+                 hover:text-cyan-600
                  transition-all duration-300"
           >
             <ArrowUp size={22} />

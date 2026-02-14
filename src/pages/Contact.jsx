@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, ChevronDown } from "lucide-react";
+import { Mail, MapPin, ChevronDown, ArrowRight } from "lucide-react";
 import emailjs from "emailjs-com";
 
 export default function Contact() {
@@ -43,7 +43,7 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="space-y-6"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold text-cyan-500">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white">
                         Let's Talk
                     </h1>
 
@@ -126,12 +126,16 @@ export default function Contact() {
                     {/* CTA Button */}
                     <motion.button
                         type="submit"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-full py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-lg "
+                        className="group w-full py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
                     >
-                        Submit
+                        <span className="inline-flex items-center justify-center gap-2">
+                            <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-16 transition-transform duration-300" />
+                            <span className="group-hover:-translate-x-8 transition-transform duration-300">
+                                Submit
+                            </span>
+                        </span>
                     </motion.button>
+
                 </motion.form>
             </div>
         </section>

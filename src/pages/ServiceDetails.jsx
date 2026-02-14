@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { services } from "../data/services";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function ServiceDetails() {
   const { id } = useParams();
@@ -119,9 +119,15 @@ export default function ServiceDetails() {
           >
             <Link
               to="/contact"
-              className="inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl hover:scale-105 active:scale-95 transition"
+              className="group inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
             >
-              Request a Free Consultation
+              <span className="inline-flex items-center gap-2">
+                <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-56 transition-transform duration-300" />
+                <span className="group-hover:-translate-x-8 transition-transform duration-300">
+                  Request a Free Consultation
+                </span>
+
+              </span>
             </Link>
           </motion.div>
         </motion.div>

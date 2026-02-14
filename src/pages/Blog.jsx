@@ -45,7 +45,7 @@ export default function Blog() {
                   <h2 className="text-xl font-semibold mb-3">{blog.title}</h2>
                   <p className="text-gray-400 mb-4">{blog.desc}</p>
 
-                  <span className="text-cyan-400 font-medium group-hover:underline">
+                  <span className="text-cyan-400 font-medium hover:text-cyan-300 ">
                     Read More →
                   </span>
                 </div>

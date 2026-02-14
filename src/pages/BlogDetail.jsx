@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import blogs from "../data/blogs";
+import { ArrowRight } from "lucide-react";
 
 export default function BlogDetail() {
     const { slug } = useParams();
@@ -104,10 +105,16 @@ export default function BlogDetail() {
 
                     <Link
                         to="/contact"
-                        className="inline-block bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-6 py-3 rounded-xl transition"
+                        className="group inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
                     >
-                        Get Free Consultation
+                        <span className="inline-flex items-center gap-2">
+                            <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-44 transition-transform duration-300" />
+                            <span className="group-hover:-translate-x-8 transition-transform duration-300">
+                                Get Free Consultation
+                            </span>
+                        </span>
                     </Link>
+
                 </motion.div>
             </div>
         </div>

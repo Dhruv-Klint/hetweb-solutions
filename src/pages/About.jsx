@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 /* Counter component */
 function Counter({ value }) {
@@ -145,12 +146,16 @@ export default function About() {
 
                 <motion.a
                     href="/contact"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-block mt-6 px-10 py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-lg"
+                    className="group inline-block mt-6 px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
                 >
-                    Contact Us
+                    <span className="inline-flex items-center gap-2">
+                        <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-24 transition-transform duration-300" />
+                        <span className="group-hover:-translate-x-8 transition-transform duration-300">
+                            Contact Us
+                        </span>
+                    </span>
                 </motion.a>
+
             </motion.div>
         </section>
     );
