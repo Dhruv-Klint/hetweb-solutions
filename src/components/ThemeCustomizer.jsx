@@ -16,12 +16,6 @@ const themeColors = [
     { name: "Yellow", hex: "#eab308", bg: "bg-yellow-500" },
     { name: "Lime", hex: "#84cc16", bg: "bg-lime-500" },
     { name: "Green", hex: "#22c55e", bg: "bg-green-500" },
-    { name: "Emerald", hex: "#10b981", bg: "bg-emerald-500" },
-    { name: "Teal", hex: "#14b8a6", bg: "bg-teal-500" },
-    { name: "Sky", hex: "#0ea5e9", bg: "bg-sky-500" },
-    { name: "Slate", hex: "#64748b", bg: "bg-slate-500" },
-    { name: "Gray", hex: "#6b7280", bg: "bg-gray-500" },
-    { name: "Stone", hex: "#78716c", bg: "bg-stone-500" },
 ];
 
 const fonts = [
