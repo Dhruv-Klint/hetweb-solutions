@@ -66,27 +66,27 @@ const testimonials = [
 const faq = [
   {
     question: 'How long does marketing take to show results?',
-    answer: 'Results depend on the strategy, but most clients start seeing improvement within the first few months.'
+    answer: 'Results depend on the strategy and industry competition. Most clients begin seeing noticeable improvements within the first few months.'
   },
   {
     question: 'Do you work with startups?',
-    answer: 'Yes, we work with startups and established businesses alike.'
+    answer: 'Yes, we collaborate with both startups and established businesses. Our strategies are tailored to match each stage of business growth.'
   },
   {
     question: 'What services do you provide?',
-    answer: 'We provide a wide range of digital marketing services including SEO, social media marketing, content creation, and more.'
+    answer: 'We offer comprehensive digital marketing services including SEO, social media marketing, and content creation. Additional solutions are customized based on your business needs.'
   },
   {
     question: 'How do you measure marketing success?',
-    answer: 'We measure success through key performance indicators like website traffic, conversion rates, engagement metrics, and ROI.'
+    answer: 'Success is tracked using key performance indicators such as traffic, conversions, and engagement. We also evaluate overall return on investment for long-term impact.'
   },
   {
     question: 'Will I get regular updates on my campaigns?',
-    answer: 'Yes, we provide regular progress reports and updates to keep you informed of campaign performance.'
+    answer: 'Yes, we share consistent progress reports and performance insights. This keeps you fully informed about campaign growth and results.'
   },
   {
     question: 'Can you customize a strategy for my business?',
-    answer: 'Absolutely! We tailor our marketing strategies to fit your specific business goals and target audience.'
+    answer: 'Absolutely, every strategy is designed around your specific goals and audience. We focus on delivering measurable and sustainable business growth.'
   }
 ]
 
@@ -159,7 +159,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 mt-10 md:mt-0"
           >
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white">
               Digital Marketing That Grows Your Business
@@ -240,39 +240,40 @@ export default function Home() {
                 whileHover={{ y: -8 }}
                 className="group relative p-[1px] rounded-3xl bg-gradient-to-br from-cyan-500/30 via-cyan-500/20 to-purple-500/30"
               >
-                <div className="h-full rounded-3xl bg-black p-7 flex flex-col justify-between shadow-xl transition-all duration-300">
-                  <div>
-                    {/* Clickable Image */}
-                    <Link to={service.link}>
+                <Link to={service.link} className="block h-full">
+                  <div className="h-full rounded-3xl bg-black p-7 flex flex-col justify-between shadow-xl transition-all duration-300">
+
+                    {/* TOP CONTENT */}
+                    <div>
                       <img
                         src={service.image}
                         alt={service.title}
                         className="w-full h-[280px] object-cover rounded-2xl mb-5 hover:scale-[1.02] transition-transform duration-300"
                       />
-                    </Link>
 
-                    <div className="flex items-start justify-between gap-4 mb-3">
-                      <h3 className="text-xl md:text-2xl font-bold text-white">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
                         {service.title}
                       </h3>
 
-                      {/* Navigation Button */}
-                      <Link
-                        to={service.link}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition border border-cyan-500/30 rounded-full px-4 py-2 whitespace-nowrap group"
-                      >
-                        Learn more
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {service.desc}
+                      </p>
                     </div>
 
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      {service.desc}
-                    </p>
-                  </div>
-                </div>
+                    {/* BOTTOM RIGHT BUTTON */}
+                    <div className="flex justify-end mt-6">
+                      <span className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 group-hover:text-cyan-300 transition border border-cyan-500/30 rounded-full px-4 py-2 whitespace-nowrap">
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-[88px]" />
+                        <span className="group-hover:-translate-x-6 transition duration-300">
+                          Learn more
+                        </span>
+                      </span>
+                    </div>
 
+                  </div>
+                </Link>
               </motion.div>
+
             ))}
           </div>
         </div>

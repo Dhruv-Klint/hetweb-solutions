@@ -65,11 +65,12 @@ export default function ServiceDetails() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className={`grid md:grid-cols-2 gap-10 items-center ${isReverse ? "md:[&>*:first-child]:order-2" : ""
-                      }`}
+                    className={`grid md:grid-cols-2 gap-10 items-center
+    ${isReverse ? "md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1" : ""}
+  `}
                   >
                     {/* TEXT */}
-                    <p className="text-gray-300 md:text-base leading-relaxed ">
+                    <p className="text-gray-300 md:text-base leading-relaxed text-justify order-2 md:order-none">
                       {para}
                     </p>
 
@@ -82,10 +83,11 @@ export default function ServiceDetails() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="w-full rounded-2xl border border-white/10 shadow-lg"
+                        className="w-full rounded-2xl border border-white/10 shadow-lg order-1 md:order-none"
                       />
                     )}
                   </motion.div>
+
                 )
               })}
           </div>

@@ -9,11 +9,15 @@ import { Routes, Route } from 'react-router-dom'
 import Blog from './pages/Blog'
 import BlogDetail from './pages/BlogDetail'
 import ScrollToTop from './components/ScrollToTop'
+import ThemeCustomizer from './components/ThemeCustomizer'
 
 
 function App() {
     return (
         <div>
+
+            <ThemeCustomizer />
+
             <Navbar />
 
             <ScrollToTop />

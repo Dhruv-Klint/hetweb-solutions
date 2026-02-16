@@ -1,16 +1,36 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, ChevronDown, ArrowRight } from 'lucide-react'
+import { Menu, ChevronDown, ArrowRight, X } from 'lucide-react'
 import logo from "../assets/logo.png"
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from "react"
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)
     const [servicesOpen, setServicesOpen] = useState(false)
     const location = useLocation()
+    const menuRef = useRef(null)
+
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setOpen(false)
+            }
+        }
+
+        if (open) {
+            document.addEventListener("mousedown", handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [open])
+
 
     return (
-        <nav className="sticky top-0 z-50 bg-gradient-to-b from-black/90 to-black/70 backdrop-blur-2xl border-b border-cyan-100/30 shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
+        <nav className="sticky top-0 z-50 bg-gradient-to-b from-black/90 to-black/70 backdrop-blur-2xl border-b border-cyan-100/30 shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
+        >
             <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
 
                 {/* LEFT LINKS */}
@@ -61,7 +81,7 @@ export default function Navbar() {
                                     transition={{ duration: 0.25, ease: 'easeOut' }}
                                     className="absolute -left-1/2 -translate-x-1/2 mt-2 w-fit whitespace-nowrap rounded-3xl bg-black/95 border border-gray-500 shadow-2xl backdrop-blur-xl p-2"
                                 >
-                                    <DropdownItem to="/services/seo-services" label="SEO" />
+                                    <DropdownItem to="/services/seo-services" label="Search Engine Optimization (SEO)" />
                                     <DropdownItem to="/services/social-media-marketing" label="Social Media Marketing" />
                                     <DropdownItem to="/services/social-media-account-creation" label="Social Media Account Creation" />
                                     <DropdownItem to="/services/bookmarking-website-services" label="Bookmarking Services" />
@@ -102,7 +122,7 @@ export default function Navbar() {
                         active={location.pathname === '/contact'}
                         delay={0.4}
                         className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl 
-             bg-cyan-500 text-white font-semibold shadow-lg
+             theme-btn text-white font-semibold shadow-lg
              transition-all duration-300 hover:text-white"
                     >
 
@@ -125,13 +145,48 @@ export default function Navbar() {
                 <motion.button
                     whileTap={{ scale: 0.8 }}
                     whileHover={{ scale: 1.1 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                     onClick={() => setOpen(!open)}
                     className="md:hidden text-cyan-400"
                 >
-                    <Menu />
+                    {open ? <X /> : <Menu />}
                 </motion.button>
+
             </div>
+
+            {/* MOBILE MENU */}
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                        ref={menuRef}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.25 }}
+                        className="md:hidden bg-black/95 border-t border-cyan-500/20 backdrop-blur-xl"
+                    >
+                        <div className="flex flex-col space-y-4 px-6 py-6">
+
+                            <MobileLink to="/" label="Home" onClick={() => setOpen(false)} />
+                            <MobileLink to="/blog" label="Blog" onClick={() => setOpen(false)} />
+                            <MobileLink to="/about" label="About" onClick={() => setOpen(false)} />
+                            <MobileLink to="/contact" label="Contact" onClick={() => setOpen(false)} />
+
+                            {/* Services */}
+                            <div className="pt-2 border-t border-gray-700">
+                                <p className="text-gray-400 text-sm mb-2">Services</p>
+
+                                <MobileLink to="/services/seo-services" label="SEO Services" onClick={() => setOpen(false)} />
+                                <MobileLink to="/services/social-media-marketing" label="Social Media Marketing" onClick={() => setOpen(false)} />
+                                <MobileLink to="/services/social-media-account-creation" label="Account Creation" onClick={() => setOpen(false)} />
+                                <MobileLink to="/services/bookmarking-website-services" label="Bookmarking Services" onClick={() => setOpen(false)} />
+                            </div>
+
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
         </nav>
 
     )
