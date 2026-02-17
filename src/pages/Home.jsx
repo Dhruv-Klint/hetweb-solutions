@@ -172,7 +172,7 @@ export default function Home() {
             <motion.div>
               <Link
                 to="/contact"
-                className="group inline-flex items-center mt-4 px-8 py-3 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition duration-300 overflow-hidden"
+                className="theme-btn group inline-flex items-center mt-4 px-8 py-3 rounded-2xl font-semibold text-white shadow-xl transition duration-300 overflow-hidden"
               >
                 <span className="inline-flex items-center gap-2">
                   <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-20" />
@@ -260,7 +260,6 @@ export default function Home() {
                       </p>
                     </div>
 
-                    {/* BOTTOM RIGHT BUTTON */}
                     <div className="flex justify-end mt-6">
                       <span className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 group-hover:text-cyan-300 transition border border-cyan-500/30 rounded-full px-4 py-2 whitespace-nowrap">
                         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-[88px]" />

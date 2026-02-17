@@ -113,7 +113,7 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center space-x-6 text-gray-200 font-medium">
 
                     {/* Phone number (new but styled same) */}
-                    <a href="tel:+919999999999" className="font-semibold text-white cursor-pointer">
+                    <a href="tel:+919999999999" className="font-semibold text-white cursor-pointer hover:text-cyan-400 transition">
                         +91 99999 99999
                     </a>
 

@@ -30,7 +30,7 @@ const fonts = [
 
 export default function ThemeCustomizer() {
     const [open, setOpen] = useState(false);
-    const defaultColor = "#06b6d4"; // cyan-500
+    const defaultColor = "#06b6d4";
     const [activeColor, setActiveColor] = useState(defaultColor);
     const [activeFont, setActiveFont] = useState(null);
 
@@ -52,8 +52,10 @@ export default function ThemeCustomizer() {
     // Change theme color
     const changeColor = (color) => {
         document.documentElement.style.setProperty("--primary-color", color);
+
         setActiveColor(color);
     };
+
 
     // Change font
     const changeFont = (font) => {
@@ -65,15 +67,23 @@ export default function ThemeCustomizer() {
 
     // Reset theme
     const resetTheme = () => {
-        document.documentElement.style.removeProperty("--primary-color");
+        document.documentElement.style.setProperty("--primary-color", defaultColor);
         document.documentElement.style.removeProperty("--font-family");
-        setActiveColor(null);
+
+        setActiveColor(defaultColor);
         setActiveFont(null);
     };
 
+
     useEffect(() => {
         document.documentElement.style.setProperty("--primary-color", defaultColor);
+        setActiveColor(defaultColor);
+
+        const defaultFont = fonts[0].family;
+        document.documentElement.style.setProperty("--font-family", defaultFont);
+        setActiveFont(defaultFont);
     }, []);
+
 
 
     return (

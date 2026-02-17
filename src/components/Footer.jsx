@@ -162,7 +162,7 @@ export default function Footer() {
                 type="submit"
                 disabled={subscribed}
                 whileTap={{ scale: subscribed ? 1 : 0.95 }}
-                className="group px-7 py-3 rounded-2xl font-semibold bg-cyan-500 shadow-lg disabled:opacity-70"
+                className="theme-btn group px-7 py-3 rounded-2xl font-semibold shadow-lg disabled:opacity-70"
               >
                 <span className={`relative inline-flex items-center justify-center ${subscribed ? "" : "group-hover:-translate-x-6"} transition-transform duration-300`}>
 

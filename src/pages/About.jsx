@@ -136,7 +136,7 @@ export default function About() {
 
                 <Link
                     to="/contact"
-                    className="group inline-flex items-center mt-6 px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition overflow-hidden"
+                    className="theme-btn group inline-flex items-center mt-6 px-12 py-4 rounded-2xl font-semibold text-white shadow-xl transition overflow-hidden"
                 >
                     <ArrowRight className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-x-20" />
                     <span className="transition-transform duration-300 group-hover:-translate-x-8">

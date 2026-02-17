@@ -125,7 +125,7 @@ export default function Contact() {
                     {/* CTA Button */}
                     <motion.button
                         type="submit"
-                        className="group w-full py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
+                        className="theme-btn group w-full py-4 rounded-2xl font-semibold text-white shadow-xl transition"
                     >
                         <span className="inline-flex items-center justify-center gap-2">
                             <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-16 transition-transform duration-300" />

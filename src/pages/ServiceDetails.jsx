@@ -121,7 +121,7 @@ export default function ServiceDetails() {
           >
             <Link
               to="/contact"
-              className="group inline-block px-12 py-4 rounded-2xl font-semibold text-white bg-cyan-500 shadow-xl transition"
+              className="theme-btn group inline-block px-12 py-4 rounded-2xl font-semibold text-white shadow-xl transition"
             >
               <span className="inline-flex items-center gap-2">
                 <ArrowRight className="w-5 h-5 inline-block mr-2 group-hover:translate-x-[88px] transition-transform duration-300" />
