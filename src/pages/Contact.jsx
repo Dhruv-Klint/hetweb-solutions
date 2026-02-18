@@ -47,7 +47,7 @@ export default function Contact() {
                         Let's Talk
                     </h1>
 
-                    <p className="text-gray-300 max-w-md leading-relaxed">
+                    <p className="text-gray-300 max-w-md leading-relaxed text-justify">
                         Ready to grow your brand, get more leads, and boost your online presence? Our digital marketing experts are here to create result-driven strategies tailored to your business. Contact us today and let's turn your goals into measurable success.
                     </p>
 

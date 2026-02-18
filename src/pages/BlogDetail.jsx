@@ -80,7 +80,7 @@ export default function BlogDetail() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="text-gray-300 leading-relaxed space-y-6 text-lg"
+                    className="text-gray-300 leading-relaxed space-y-6 text-lg text-justify"
                 >
                     {blog.content.split("\n").map((para, i) => (
                         <p key={i}>{para}</p>

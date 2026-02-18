@@ -165,7 +165,7 @@ export default function Home() {
               Digital Marketing That Grows Your Business
             </h1>
 
-            <p className="text-gray-300 text-lg max-w-xl md:w-[88%]">
+            <p className="text-gray-300 text-lg max-w-xl text-justify">
               We deliver data-driven marketing solutions that help startups and growing businesses boost visibility, attract quality leads, and build strong brands for long-term success.
             </p>
 

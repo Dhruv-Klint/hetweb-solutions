@@ -43,7 +43,7 @@ export default function Blog() {
                 {/* Content */}
                 <div className="p-7">
                   <h2 className="text-xl font-semibold mb-3">{blog.title}</h2>
-                  <p className="text-gray-400 mb-4">{blog.desc}</p>
+                  <p className="text-gray-400 mb-4 text-justify">{blog.desc}</p>
 
                   <span className="text-cyan-400 font-medium hover:text-cyan-300 ">
                     Read More →

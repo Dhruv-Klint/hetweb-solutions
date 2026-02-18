@@ -55,9 +55,9 @@ export default function About() {
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-4xl md:text-5xl font-bold leading-tight"
+                            className="text-4xl md:text-5xl font-bold leading-normal"
                         >
-                            We Build Digital Growth <br className="hidden md:block" /> That Matters
+                            We Build Digital Growth That Matters
                         </motion.h1>
 
                         <motion.div
@@ -65,7 +65,7 @@ export default function About() {
                             animate={{ opacity: 1, x: 0 }}
                             className="space-y-4"
                         >
-                            <p className="text-gray-300 text-lg leading-relaxed">
+                            <p className="text-gray-300 text-lg leading-relaxed text-justify">
                                 Hetweb Solutions is a results-driven digital marketing agency dedicated to helping
                                 businesses grow online with smart strategy, creative execution, and measurable
                                 performance. From powerful SEO and engaging social media marketing to modern,
@@ -73,8 +73,8 @@ export default function About() {
                                 visitors into loyal customers.
                             </p>
 
-                            <p className="text-gray-300 leading-relaxed">
-                                Our mission is simple - deliver real growth, transparent communication, and
+                            <p className="text-gray-300 leading-relaxed text-lg text-justify">
+                                Our mission is simple-deliver real growth, transparent communication, and
                                 long-term success for every brand we work with. Whether you're a startup or an
                                 established company, we craft tailored solutions that match your goals and scale
                                 with your business.

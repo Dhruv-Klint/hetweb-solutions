@@ -72,7 +72,7 @@ export default function Footer() {
             className="h-[88px] w-auto object-contain mx-auto md:mx-0 drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]"
           />
 
-          <p className="text-gray-300 mt-2 text-base leading-relaxed max-w-sm mx-auto md:mx-0">
+          <p className="text-gray-300 mt-2 text-base leading-relaxed max-w-sm mx-auto md:mx-0 text-justify">
             We help startups and businesses grow with modern marketing,
             creative branding, and effective digital strategies that drive real
             results.
@@ -89,7 +89,7 @@ export default function Footer() {
 
         {/* QUICK LINKS */}
         <FooterColumn title="Quick Links">
-          <FooterLink to="/" label="Home" />
+          <FooterLink to="/home" label="Home" />
           <FooterLink to="/#services" label="Services" />
           <FooterLink to="/blog" label="Blog" />
           <FooterLink to="/about" label="About Us" />
