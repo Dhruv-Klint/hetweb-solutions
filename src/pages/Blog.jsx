@@ -5,14 +5,14 @@ import blogs from "../data/blogs";
 export default function Blog() {
   return (
     <div className="bg-black text-white min-h-screen py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl md:max-w-7xl mx-auto">
 
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16"
+          className="text-4xl font-bold text-center mb-16"
         >
           Our Blogs
         </motion.h1>
