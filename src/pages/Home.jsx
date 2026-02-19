@@ -119,9 +119,11 @@ export default function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash === "#services") {
+    if (location.state?.scrollTo === "services") {
       const section = document.getElementById("services");
       section?.scrollIntoView({ behavior: "smooth" });
+
+      window.history.replaceState({}, document.title);
     }
   }, [location]);
 
@@ -255,7 +257,7 @@ export default function Home() {
                         {service.title}
                       </h3>
 
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-gray-300 text-sm leading-relaxed text-justify">
                         {service.desc}
                       </p>
                     </div>

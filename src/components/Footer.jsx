@@ -90,7 +90,7 @@ export default function Footer() {
         {/* QUICK LINKS */}
         <FooterColumn title="Quick Links">
           <FooterLink to="/home" label="Home" />
-          <FooterLink to="/#services" label="Services" />
+          <FooterLink to="/" label="Services" state={{ scrollTo: "services" }} />
           <FooterLink to="/blog" label="Blog" />
           <FooterLink to="/about" label="About Us" />
           <FooterLink to="/contact" label="Contact Us" />
@@ -221,10 +221,11 @@ function FooterColumn({ title, children }) {
   );
 }
 
-function FooterLink({ to, label }) {
+function FooterLink({ to, label, state }) {
   return (
     <Link
       to={to}
+      state={state} 
       className="block hover:text-cyan-400 hover:translate-x-1 transition duration-300"
     >
       {label}

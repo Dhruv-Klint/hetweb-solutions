@@ -28,13 +28,14 @@ export default function ServiceDetails() {
           className="mb-12"
         >
           <Link
-            to="/#services"
+            to="/"
             state={{ scrollTo: "services" }}
             className="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-500 transition"
           >
             <ArrowLeft size={16} />
             Back to All Services
           </Link>
+
 
 
         </motion.div>
